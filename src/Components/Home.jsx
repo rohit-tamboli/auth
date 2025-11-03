@@ -71,7 +71,7 @@ const Home = () => {
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id="offcanvasNavbarLabel-expand-md">
-                Menu
+                
               </Offcanvas.Title>
             </Offcanvas.Header>
 
