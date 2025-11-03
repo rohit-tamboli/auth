@@ -1,6 +1,7 @@
 import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import './Home.css'
 
 import React, { useEffect, useState } from "react";
 import { auth, db } from "./firebase";
