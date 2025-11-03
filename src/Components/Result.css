@@ -1,0 +1,189 @@
+.loading {
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin-top: 70px;
+}
+
+.certificate-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
+  background: linear-gradient(135deg, #f8f9fa, #e8eaf6);
+  padding: 20px;
+}
+
+.certificate-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  max-width: 750px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.certificate-title {
+  font-size: 2rem;
+  color: #d32f2f;
+  margin-bottom: 10px;
+}
+
+.certificate-subtitle {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.follow-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #1976d2;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #d32f2f;
+}
+
+/* Certificate section */
+.certificate-section {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.btn-view {
+  display: inline-block;
+  background: #d32f2f;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: all 0.3s;
+}
+
+.btn-view:hover {
+  background: #b71c1c;
+  transform: scale(1.05);
+}
+
+/* Share section */
+.share-section {
+  background: #fafafa;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.btn-watch {
+  display: inline-block;
+  background: #1976d2;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: all 0.3s;
+}
+
+.btn-watch:hover {
+  background: #0d47a1;
+  transform: scale(1.05);
+}
+
+.hashtags {
+  margin: 20px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn-share {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-share.instagram {
+  background: #e1306c;
+}
+
+.btn-share.linkedin {
+  background: #0077b5;
+}
+
+.btn-share.Website {
+  background: #d32f2f;
+}
+
+.btn-share.facebook {
+  background: #3b5998;
+}
+
+.btn-share:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .certificate-card {
+    padding: 30px 20px;
+  }
+
+  .certificate-title {
+    font-size: 1.7rem;
+  }
+
+  .btn-view,
+  .btn-watch {
+    width: 100%;
+  }
+}

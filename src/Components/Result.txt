@@ -1,0 +1,15 @@
+import React from "react";
+
+function Result() {
+  const answers = JSON.parse(localStorage.getItem("quizAnswers")) || {};
+
+  return (
+    <div style={{ padding: "40px", textAlign: "center" }}>
+      <h2>🎉 Quiz Submitted!</h2>
+      <p>You answered {Object.keys(answers).length} questions.</p>
+      <p>Thank you for completing the quiz!</p>
+    </div>
+  );
+}
+
+export default Result;
