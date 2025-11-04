@@ -236,26 +236,26 @@ const Homepage = () => {
         >
           <h3 className="text-info mb-3">📅 Challenge Timeline</h3>
           <div className="timeline d-flex justify-content-between">
-            <ul className="fs-5 list-unstyled">
+            <ul className="fs-5 list-unstyled gap-10 timeline-card">
               <h5>Phase 1 – Open National Round</h5>
               <li>📆 Start: 1st November 2025, 1:00 PM</li>
               <li>⏰ End: 25th November 2025, 11:45 PM</li>
               <li>👥 Open for All Participants</li>
-              <li>📜 Reward: E-Certificate + Qualification for Phase 2</li>
+              <li>📜 Reward: E-Certificate + Qualification for &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phase 2</li>
             </ul>
 
-            <ul className="fs-5 list-unstyled">
-              <h5>Phase 2 – Finalists’ Round</h5>
+            <ul className="fs-5 list-unstyled timeline-card">
+              <h5>Phase 2 - Finalists' Round</h5>
               <li>📆 Start: 25th November 2025</li>
               <li>⏰ End: 5th December 2025</li>
               <li>🎯 Eligibility: Only top scorers from Phase 1</li>
-              <li>🏆 Winners Announcement: 6th December 2025</li>
-              <li>📢 Platform: upDate Official Website & Social Media</li>
+              <li>🏆 Winners Announcement: 6th December &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2025</li>
+              <li>📢 Platform: upDate Official Website & &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Social Media</li>
             </ul>
           </div>
         </motion.div>
 
-        {/* CTA Section */}
+        
 
         {/* </Container> */}
 
