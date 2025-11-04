@@ -1,112 +1,171 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { auth, db } from "./firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore"; // ✅ updateDoc for saving answers
+import Home from "./Home";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "./Mcq1.css";
 
-function Mcq1() {
+const Mcq1 = () => {
+  const [userDetails, setUserDetails] = useState(null);
   const [answers, setAnswers] = useState({});
   const navigate = useNavigate();
 
-  const questions = [
-    {
-      id: 1,
-      text: "Which of the following best defines “Workshop”?",
-      options: [
-        { value: "A", text: "Group learning session" },
-        { value: "B", text: "Festival event" },
-        { value: "C", text: "Sports competition" },
-        { value: "D", text: "None of these" },
-      ],
-    },
-    {
-      id: 2,
-      text: "What is the main purpose of attending a workshop?",
-      options: [
-        { value: "A", text: "Networking" },
-        { value: "B", text: "Practical Learning" },
-        { value: "C", text: "Certification only" },
-        { value: "D", text: "None" },
-      ],
-    },
-    {
-      id: 3,
-      text: "Which platform is best for professional networking?",
-      options: [
-        { value: "A", text: "Instagram" },
-        { value: "B", text: "YouTube" },
-        { value: "C", text: "LinkedIn" },
-        { value: "D", text: "Facebook" },
-      ],
-    },
-    {
-      id: 4,
-      text: "What does “BFSI” stand for?",
-      options: [
-        { value: "A", text: "Banking, Finance, and Insurance" },
-        { value: "B", text: "Banking, Financial Services & Insurance" },
-        { value: "C", text: "Business, Finance, and Investments" },
-        { value: "D", text: "None" },
-      ],
-    },
-    {
-      id: 5,
-      text: "upDate Education mainly focuses on:",
-      options: [
-        { value: "A", text: "Gaming" },
-        { value: "B", text: "Online Courses & HR" },
-        { value: "C", text: "Travel" },
-        { value: "D", text: "Entertainment" },
-      ],
-    },
-  ];
+  const fetchUserData = async () => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const docRef = doc(db, "Users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setUserDetails(docSnap.data());
+        } else {
+          console.log("User not found in database");
+        }
+      } else {
+        console.log("No user logged in");
+      }
+    });
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
 
   const handleSelect = (questionId, optionValue) => {
     setAnswers({ ...answers, [questionId]: optionValue });
   };
 
-  const handleSubmit = () => {
-    // Save answers to localStorage (optional)
-    localStorage.setItem("quizAnswers", JSON.stringify(answers));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const user = auth.currentUser;
 
-    // Redirect to result page
-    navigate("/mcq2");
+    if (!user) {
+      toast.error("Please log in first", { position: "bottom-center" });
+      return;
+    }
+
+    try {
+      const docRef = doc(db, "Users", user.uid);
+
+      // ✅ Save MCQ answers inside user's Firestore document
+      await updateDoc(docRef, {
+        mcq1Answers: answers, // Save all answers as an object
+        mcq1Completed: true, // Optional flag to check progress
+        timestamp: new Date(), // Save time
+      });
+
+      toast.success("Quiz submitted successfully!", { position: "top-center" });
+
+      // Redirect to next quiz page
+      navigate("/mcq2");
+    } catch (error) {
+      console.error("Error saving answers:", error);
+      toast.error("Failed to submit quiz. Try again.", {
+        position: "bottom-center",
+      });
+    }
   };
 
+  const questions = [
+    {
+      id: 1,
+      text: "What is the most effective way to improve your career readiness?",
+      options: [
+        { value: "A", text: "Watching random YouTube videos" },
+        { value: "B", text: "Taking internships & skill-based training" },
+        { value: "C", text: "Waiting for college placement only" },
+        { value: "D", text: "Ignoring soft skills development" },
+      ],
+    },
+    {
+      id: 2,
+      text: "Which of the following is an example of a “Soft Skill”?",
+      options: [
+        { value: "A", text: "Coding" },
+        { value: "B", text: "Communication" },
+        { value: "C", text: "Typing" },
+        { value: "D", text: "Accounting" },
+      ],
+    },
+    {
+      id: 3,
+      text: "Which habit helps you stay consistent in achieving goals?",
+      options: [
+        { value: "A", text: "Procrastination" },
+        { value: "B", text: "Daily routine & planning" },
+        { value: "C", text: "Ignoring feedback" },
+        { value: "D", text: "Random multitasking" },
+      ],
+    },
+    {
+      id: 4,
+      text: "What is the best platform to showcase your professional achievements?",
+      options: [
+        { value: "A", text: "WhatsApp Status" },
+        { value: "B", text: "Instagram Stories" },
+        { value: "C", text: "LinkedIn Profile" },
+        { value: "D", text: "None of the above" },
+      ],
+    },
+    {
+      id: 5,
+      text: "What is the main purpose of the Career Readiness Challenge?",
+      options: [
+        { value: "A", text: "To test luck" },
+        { value: "B", text: "To promote social media following" },
+        { value: "C", text: "To prepare youth for jobs & career success" },
+        { value: "D", text: "To sell online courses" },
+      ],
+    },
+  ];
+
   return (
-    <div className="question-container">
-      <div className="question-card">
-        <h4 className="quiz-title text-center mb-4">🧠 Workshop Quiz</h4>
+    <>
+      <Home />
 
-        {questions.map((q) => (
-          <div key={q.id} className="question-block">
-            <h5 className="question-title">
-              {q.id}. {q.text}
-            </h5>
+      <div className="question-container">
+        {userDetails ? (
+          <div className="question-card">
+            <h4 className="quiz-title text-center mb-4">
+             🎯 Section A: Multiple Choice Questions (MCQs)
+            </h4>
 
-            <div className="options-grid">
-              {q.options.map((opt) => (
-                <div
-                  key={opt.value}
-                  className={`option ${
-                    answers[q.id] === opt.value ? "selected" : ""
-                  }`}
-                  onClick={() => handleSelect(q.id, opt.value)}
-                >
-                  <span className="option-label">{opt.value}.</span> {opt.text}
+            {questions.map((q) => (
+              <div key={q.id} className="question-block">
+                <h5 className="question-title">
+                  {q.id}. {q.text}
+                </h5>
+
+                <div className="options-grid">
+                  {q.options.map((opt) => (
+                    <div
+                      key={opt.value}
+                      className={`option ${
+                        answers[q.id] === opt.value ? "selected" : ""
+                      }`}
+                      onClick={() => handleSelect(q.id, opt.value)}
+                    >
+                      <span className="option-label">{opt.value}.</span>{" "}
+                      {opt.text}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <hr />
-          </div>
-        ))}
+                <hr />
+              </div>
+            ))}
 
-        <div className="submit-section">
-          <button className="submit-btn" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
+            <div className="submit-section">
+              <button className="submit-btn" onClick={handleSubmit}>
+                Submit
+              </button>
+            </div>
+          </div>
+        ) : (
+          <p className="loading">Loading...</p>
+        )}
       </div>
-    </div>
+    </>
   );
-}
+};
 
 export default Mcq1;

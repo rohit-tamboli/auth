@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "./Mcq2.css";
 
-const Profile = () => {
+const Mcq2 = () => {
   const [userDetails, setUserDetails] = useState(null);
   const navigate = useNavigate();
   const [answers, setAnswers] = useState({
@@ -87,11 +87,10 @@ const Profile = () => {
       <div>
         {userDetails ? (
           <>
-            <h3>Mcq- 2</h3>
             <div className="section-container">
               <div className="section-card">
                 <h3 className="section-title text-center mb-4">
-                  ✍️ Section 2 – Objective / Short Answer
+                  🎯 Section A: Multiple Choice Questions (MCQs)
                 </h3>
 
                 {["q1", "q2", "q3", "q4", "q5"].map((key, i) => (
@@ -100,11 +99,11 @@ const Profile = () => {
                       {i + 1}.{" "}
                       {
                         [
-                          "Write one skill you learned today.",
-                          "What was your favorite part of this workshop?",
-                          "How will you use this knowledge in your career?",
-                          "Mention one new concept you learned.",
-                          "Any suggestion for improvement?",
+                          "What are the 3 most productive things you do each day to grow your skills?",
+                          "Suppose you’ve just completed your graduation today — where do you envision yourself in the next 5 years? What milestones do you aim to achieve in your professional journey ahead? ",
+                          "Why do you believe you can be a winner in this challenge? What qualities make you stand out from others?",
+                          "What does “Career Readiness” mean to you personally? How are you preparing yourself for real-world opportunities?",
+                          "If selected for Phase 2, how will you utilize the opportunity? Share your plan to make the most of mentorship, rewards, or internships.",
                         ][i]
                       }
                     </label>
@@ -134,4 +133,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Mcq2;
