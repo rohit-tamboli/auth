@@ -19,7 +19,7 @@ const Hometext = () => {
         </p>
 
         <a href="/register" className="start-btn">
-          Fill Out the Form
+          Register
         </a>
       </div>
     </div>

@@ -41,7 +41,7 @@ const Form = () => {
   return (
     <>
       <Home />
-      <h1>Form</h1>
+      
       <div className="auth-inner auth-wrapper">
         {userDetails ? (
           <>

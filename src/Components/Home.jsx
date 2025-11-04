@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './Home.css'
+import "./Home.css";
 
 import React, { useEffect, useState } from "react";
 import { auth, db } from "./firebase";
@@ -39,7 +39,7 @@ const Home = () => {
   async function handleLogout() {
     try {
       await auth.signOut();
-      window.location.href = "/login";
+      window.location.href = "/";
       console.log("User logged out successfully!");
     } catch (error) {
       console.error("Error logging out:", error.message);
@@ -55,10 +55,29 @@ const Home = () => {
         className="shadow-sm border-bottom"
         sticky="top"
       >
-        <Container fluid className="px-4">
+        <Container fluid className="home-container">
           {/* Brand / Logo */}
-          <Navbar.Brand as={Link} to="/" className="fw-bold fs-3">
-            <span className="bg-danger text-white px-2">upDate</span>
+          <Navbar.Brand href="/" className="d-flex align-items-center gap-2">
+          <img
+            src="/MCA.png"
+            alt="MCA Logo"
+            className="d-inline-block align-top navbar-logo"
+          />
+            <img
+              src="/MSME.png"
+              alt="MSME Logo"
+              className="d-inline-block align-top navbar-logo"
+            />
+            <img
+              src="/DPIIT.png"
+              alt="DPIIT Logo"
+              className="d-inline-block align-top navbar-logo"
+            />
+            <img
+              src="/ISO.png"
+              alt="ISO Logo"
+              className="d-inline-block align-top navbar-logo"
+            />
           </Navbar.Brand>
 
           {/* Hamburger Toggle */}
@@ -71,9 +90,7 @@ const Home = () => {
             placement="end"
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title id="offcanvasNavbarLabel-expand-md">
-                
-              </Offcanvas.Title>
+              <Offcanvas.Title id="offcanvasNavbarLabel-expand-md"></Offcanvas.Title>
             </Offcanvas.Header>
 
             <Offcanvas.Body>
@@ -84,15 +101,15 @@ const Home = () => {
                 <Nav.Link as={Link} to="/register" className="text-dark">
                   Register
                 </Nav.Link>
-                <Nav.Link as={Link} to="/login" className="text-dark">
+                {/* <Nav.Link as={Link} to="/login" className="text-dark">
                   Login
-                </Nav.Link>
+                </Nav.Link> */}
                 <Nav.Link as={Link} to="/form" className="text-dark">
                   Form
                 </Nav.Link>
-                <Nav.Link as={Link} to="/profile" className="text-dark">
+                {/* <Nav.Link as={Link} to="/profile" className="text-dark">
                   Profile
-                </Nav.Link>
+                </Nav.Link> */}
                 <div className="">
                   {userDetails ? (
                     <>
@@ -112,7 +129,6 @@ const Home = () => {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-      
     </>
   );
 };

@@ -1,13 +1,49 @@
 /* Target the close button inside Offcanvas */
 .offcanvas-header .btn-close {
-  width: 40px;       /* Increase size */
+  width: 40px;       
   height: 40px;
-  font-size: 24px;   /* Bigger × */
+  font-size: 24px;  
   padding: 0;
   margin: 0;
 
-  /* Optional: move button slightly */
+  
   position: absolute;  
   top: 10px;          
   right: 30px;
 }
+
+
+
+
+
+.home-container { 
+  padding-left:20px;
+  padding-right: 20px;
+}
+
+
+@media (min-width: 992px) {
+  .home-container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+
+.navbar-logo {
+  height: 40px; 
+}
+
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 25px; 
+  }
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,101 @@
+import React, { useState } from "react";
+import Home from "./Home";
+import "./Homepage.css";
+
+import Modal from "react-modal";
+import Register from "./Register"; 
+
+// Modal ke accessibility ke liye
+Modal.setAppElement("#root");
+
+const Hometext = () => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
+  return (
+    <>
+      <Home />
+
+
+      <div className="home-container">
+        <h2>Welcome To <span className="bg-danger text-white px-2">upDate</span></h2>
+        <div className="welcome-card">
+          <h1 className="welcome-title">🎉 Welcome to the Event!</h1>
+          <p className="welcome-text">
+            Join our <strong>interactive workshop</strong> and earn your{" "}
+            <strong>Participation Certificate instantly</strong> after
+            completing the quiz.
+          </p>
+
+          <p className="welcome-text">
+            Fill out the form below to get started and make the most of this
+            learning experience.
+          </p>
+
+          <button onClick={openModal} className="start-btn">
+            Registration
+          </button>
+        </div>
+      </div>
+
+      {/* Modal Code */}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className="custom-modal"
+        overlayClassName="custom-overlay"
+      >
+        <div className="modal-content">
+          <button className="close-btn" onClick={closeModal}>
+            ✖
+          </button>
+          <Register />
+        </div>
+      </Modal>
+
+
+
+
+
+      <footer className="footer">
+        <div className="footer-container">
+          <div className="social-links">
+            <a
+              href="https://www.updats.in"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-solid fa-globe"></i>
+            </a>
+            
+            
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+        <p className="footer-text">
+          Copyright © {new Date().getFullYear()}{" "}
+          <strong>upDate Education</strong> upDate is a part of upDt Education
+          Technology Private Limited All rights reserved
+        </p>
+      </footer>
+    </>
+  );
+};
+
+export default Hometext;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { auth, db } from "./firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Home from "./Home";
 import { toast } from "react-toastify";
 import "./Profile.css";
@@ -17,13 +17,26 @@ const Profile = () => {
     branch: "",
   });
 
+  // Fetch user data from Firestore
   const fetchUserData = async () => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         const docRef = doc(db, "Users", user.uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-          setUserDetails(docSnap.data());
+          const data = docSnap.data();
+          setUserDetails(data);
+
+          // Pre-fill form with existing data (if any)
+          setFormData({
+            fname: data.firstName || "",
+            email: data.email || "",
+            college: data.college || "",
+            course: data.course || "",
+            mobile: data.mobile || "",
+            event: data.event || "",
+            branch: data.branch || "",
+          });
         } else {
           console.log("User not found in database");
         }
@@ -35,13 +48,35 @@ const Profile = () => {
     fetchUserData();
   }, []);
 
+  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  // Save data to Firebase Firestore
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    window.location.href = "/mcq1";
+    const user = auth.currentUser;
+    if (!user) return;
+
+    try {
+      const docRef = doc(db, "Users", user.uid);
+      await updateDoc(docRef, {
+        firstName: formData.fname,
+        email: formData.email,
+        college: formData.college,
+        course: formData.course,
+        mobile: formData.mobile,
+        event: formData.event,
+        branch: formData.branch,
+      });
+
+      toast.success("Profile saved successfully!", { position: "top-center" });
+      window.location.href = "/mcq1";
+    } catch (error) {
+      console.error("Error saving data:", error);
+      toast.error("Failed to save profile.", { position: "bottom-center" });
+    }
   };
 
   return (
@@ -64,6 +99,7 @@ const Profile = () => {
                   placeholder="Enter your first name"
                   value={formData.fname}
                   onChange={handleChange}
+                  required
                 />
               </div>
 
@@ -75,6 +111,7 @@ const Profile = () => {
                   placeholder="Enter your email"
                   value={formData.email}
                   onChange={handleChange}
+                  required
                 />
               </div>
 

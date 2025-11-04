@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { auth, db } from "./firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import Home from "./Home";
 import { toast } from "react-toastify";
-
 import { useNavigate } from "react-router-dom";
 import "./Mcq2.css";
 
 const Profile = () => {
   const [userDetails, setUserDetails] = useState(null);
-
   const navigate = useNavigate();
   const [answers, setAnswers] = useState({
     q1: "",
@@ -19,21 +17,24 @@ const Profile = () => {
     q5: "",
   });
 
+  // 🔹 Handle input
   const handleChange = (e) => {
     setAnswers({ ...answers, [e.target.name]: e.target.value });
   };
 
+  // 🔹 Fetch logged-in user details
   const fetchUserData = async () => {
     auth.onAuthStateChanged(async (user) => {
-      console.log(user);
-
-      const docRef = doc(db, "Users", user.uid);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        setUserDetails(docSnap.data());
-        console.log(docSnap.data());
+      if (user) {
+        const docRef = doc(db, "Users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setUserDetails({ uid: user.uid, ...docSnap.data() });
+        } else {
+          console.log("User document not found!");
+        }
       } else {
-        console.log("User is not logged in");
+        console.log("User not logged in");
       }
     });
   };
@@ -42,11 +43,11 @@ const Profile = () => {
     fetchUserData();
   }, []);
 
+  // 🔹 Handle logout
   async function handleLogout() {
     try {
       await auth.signOut();
       window.location.href = "/login";
-      console.log("User logged out successfully!");
     } catch (error) {
       console.error("Error logging out:", error.message);
     }
@@ -55,93 +56,67 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("User logged in Successfully");
-      window.location.href = "/result";
+      // ✅ Use auth.currentUser directly
+      const user = auth.currentUser;
+      if (!user) {
+        toast.error("User not logged in!");
+        return;
+      }
+
+      const userRef = doc(db, "Users", user.uid);
+
+      // ✅ Save data
+      await updateDoc(userRef, {
+        mcq2Answers: answers,
+        updatedAt: new Date(),
+      });
 
       localStorage.setItem("Mcq2Answers", JSON.stringify(answers));
-      // navigate("/result");
-    } catch (error) {
-      console.log(error.message);
+      toast.success("Answers saved successfully!");
 
-      toast.error(error.message, {
-        position: "bottom-center",
-      });
+      navigate("/result");
+    } catch (error) {
+      console.error("Error saving answers:", error);
+      toast.error("Error saving data. Try again.");
     }
   };
 
   return (
     <>
       <Home />
-
-      <div className="">
+      <div>
         {userDetails ? (
           <>
             <h3>Mcq- 2</h3>
-
             <div className="section-container">
               <div className="section-card">
                 <h3 className="section-title text-center mb-4">
                   ✍️ Section 2 – Objective / Short Answer
                 </h3>
 
-                <div className="question-block">
-                  <label>1. Write one skill you learned today.</label>
-                  <textarea
-                    name="q1"
-                    rows="2"
-                    placeholder="Your answer..."
-                    value={answers.q1}
-                    onChange={handleChange}
-                  ></textarea>
-                </div>
-
-                <div className="question-block">
-                  <label>
-                    2. What was your favorite part of this workshop?
-                  </label>
-                  <textarea
-                    name="q2"
-                    rows="2"
-                    placeholder="Your answer..."
-                    value={answers.q2}
-                    onChange={handleChange}
-                  ></textarea>
-                </div>
-
-                <div className="question-block">
-                  <label>
-                    3. How will you use this knowledge in your career?
-                  </label>
-                  <textarea
-                    name="q3"
-                    rows="2"
-                    placeholder="Your answer..."
-                    value={answers.q3}
-                    onChange={handleChange}
-                  ></textarea>
-                </div>
-
-                <div className="question-block">
-                  <label>4. Mention one new concept you learned.</label>
-                  <textarea
-                    name="q4"
-                    rows="2"
-                    placeholder="Your answer..."
-                    value={answers.q4}
-                    onChange={handleChange}
-                  ></textarea>
-                </div>
-
-                <div className="question-block">
-                  <label>5. Any suggestion for improvement?</label>
-                  <textarea
-                    name="q5"
-                    rows="2"
-                    placeholder="Your answer..."
-                    value={answers.q5}
-                    onChange={handleChange}
-                  ></textarea>
-                </div>
+                {["q1", "q2", "q3", "q4", "q5"].map((key, i) => (
+                  <div className="question-block" key={key}>
+                    <label>
+                      {i + 1}.{" "}
+                      {
+                        [
+                          "Write one skill you learned today.",
+                          "What was your favorite part of this workshop?",
+                          "How will you use this knowledge in your career?",
+                          "Mention one new concept you learned.",
+                          "Any suggestion for improvement?",
+                        ][i]
+                      }
+                    </label>
+                    <textarea
+                      name={key}
+                      rows="2"
+                      placeholder="Your answer..."
+                      value={answers[key]}
+                      onChange={handleChange}
+                    ></textarea>
+                  </div>
+                ))}
 
                 <div className="submit-section">
                   <button className="submit-btn" onClick={handleSubmit}>

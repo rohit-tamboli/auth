@@ -17,6 +17,7 @@ import Mcq1 from "./Components/Mcq1";
 import Mcq2 from "./Components/Mcq2";
 import Result from "./Components/Result";
 import Hometext from "./Components/Hometext";
+import Homepage from "./Components/Homepage";
 
 function App() {
   const [user, setUser] = useState();
@@ -46,7 +47,8 @@ function App() {
               <Route path="/mcq1" element={<Mcq1 />} />
               <Route path="/mcq2" element={<Mcq2 />} />
               <Route path="/result" element={<Result />} />
-              <Route path="/" element={<Hometext />} />
+              <Route path="/homepage" element={<Hometext />} />
+              <Route path="/" element={<Homepage />} />
             </Routes>
             <ToastContainer />
           </div>
