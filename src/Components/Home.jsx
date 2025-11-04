@@ -98,14 +98,14 @@ const Home = () => {
                 <Nav.Link as={Link} to="/" className="text-danger fw-semibold">
                   Home
                 </Nav.Link>
-                <Nav.Link as={Link} to="/register" className="text-dark">
+                {/* <Nav.Link as={Link} to="/register" className="text-dark">
                   Register
-                </Nav.Link>
+                </Nav.Link> */}
                 {/* <Nav.Link as={Link} to="/login" className="text-dark">
                   Login
                 </Nav.Link> */}
                 <Nav.Link as={Link} to="/form" className="text-dark">
-                  Form
+                  UserName
                 </Nav.Link>
                 {/* <Nav.Link as={Link} to="/profile" className="text-dark">
                   Profile
