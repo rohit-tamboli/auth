@@ -75,8 +75,8 @@ const Homepage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h4 className="text-secondary">
-            India’s Biggest Online Career & Employability Quiz
+          <h4 className="text-danger">
+            India's Biggest Online Career & Employability Quiz
           </h4>
           <p className="mt-3 text-muted fs-5">
             <strong>Organized by:</strong> upDt Education Technology Private
@@ -241,7 +241,10 @@ const Homepage = () => {
               <li>📆 Start: 1st November 2025, 1:00 PM</li>
               <li>⏰ End: 25th November 2025, 11:45 PM</li>
               <li>👥 Open for All Participants</li>
-              <li>📜 Reward: E-Certificate + Qualification for &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phase 2</li>
+              <li>
+                📜 Reward: E-Certificate + Qualification for
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phase 2
+              </li>
             </ul>
 
             <ul className="fs-5 list-unstyled timeline-card">
@@ -249,13 +252,18 @@ const Homepage = () => {
               <li>📆 Start: 25th November 2025</li>
               <li>⏰ End: 5th December 2025</li>
               <li>🎯 Eligibility: Only top scorers from Phase 1</li>
-              <li>🏆 Winners Announcement: 6th December &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2025</li>
-              <li>📢 Platform: upDate Official Website & &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Social Media</li>
+              <li>
+                🏆 Winners Announcement: 6th December
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2025
+              </li>
+              <li>
+                📢 Platform: upDate Official Website &
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Social
+                Media
+              </li>
             </ul>
           </div>
         </motion.div>
-
-        
 
         {/* </Container> */}
 
