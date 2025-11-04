@@ -6,6 +6,7 @@ import "./Homepage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
+  faWhatsapp,
   faLinkedin,
   faTelegram,
 } from "@fortawesome/free-brands-svg-icons";
@@ -21,16 +22,15 @@ const Homepage = () => {
   const closeModal = () => setModalIsOpen(false);
 
   const socialLinks = [
-    { icon: faInstagram, url: "https://www.instagram.com/yourprofile" },
-
-    { icon: faLinkedin, url: "https://www.linkedin.com/in/yourprofile" },
+    { icon: faInstagram, url: "https://www.instagram.com/update_edu/?igsh=bDF3eDUxOG1wbHZ2" },
+    { icon: faLinkedin, url: "https://www.linkedin.com/company/updateedu/posts/?feedView=all&viewAsMember=true" },
   ];
 
   const socialConnect = [
-    { icon: faInstagram, url: "https://www.instagram.com/yourprofile" },
-
-    { icon: faTelegram, url: "https://t.me/yourprofile" },
-    { icon: faLinkedin, url: "https://www.linkedin.com/in/yourprofile" },
+    { icon: faInstagram, url: "https://www.instagram.com/update_edu/?igsh=bDF3eDUxOG1wbHZ2" },
+    { icon: faTelegram, url: "https://t.me/update_edu" },
+    { icon: faLinkedin, url: "https://www.linkedin.com/company/updateedu/posts/?feedView=all&viewAsMember=true" },
+    { icon: faWhatsapp , url: "https://api.whatsapp.com/send/?phone=918109718211&text&type=phone_number&app_absent=0" },
   ];
   return (
     <>
@@ -38,7 +38,7 @@ const Homepage = () => {
 
       <div className="homepage-bg py-5">
         {/* <Container> */}
-        {/* Title Section */}
+       
         <div className="heading">
           <h1 className="fw-bold heading-text text-center text-md-star text-danger title  ">
             🏆 Career Readiness Challenge 2025
