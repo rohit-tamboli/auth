@@ -1,63 +1,134 @@
+/* 🌐 Overall Page Layout */
 .certificate-page {
   text-align: center;
-  padding: 30px;
+  padding: 30px 20px;
   background: #f8fafc;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* 🎓 Certificate Card */
 .certificate-container {
-  background: white;
+  background: #fff;
   border: 4px solid #007bff;
   border-radius: 15px;
   padding: 40px;
   width: 90%;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 20px auto;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
+/* 👤 Participant Name */
 .participant-name {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 700;
   color: #007bff;
+  word-wrap: break-word;
 }
 
+/* 💬 Score Display */
+.score-display {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+/* 🎯 Actions Section */
 .actions {
   margin-top: 30px;
+  width: 100%;
+  max-width: 700px;
 }
 
-.btn-download {
+.Certificate-download {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 25px;
   border-radius: 8px;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-.btn-download:hover {
+.Certificate-download:hover {
   background-color: #0056b3;
-}
-/* 
-.social-buttons a {
-  margin: 8px;
-  text-decoration: none;
-  color: white;
-  background: #007bff;
-  padding: 8px 16px;
-  border-radius: 6px;
-  display: inline-block;
-  transition: 0.3s;
+  transform: translateY(-2px);
 }
 
-.social-buttons a:hover {
-  background: #0056b3;
+.actions .social-buttons,
+.actions div[style*="display: flex"] {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
 }
 
 .share-text {
-  font-style: italic;
-  margin-bottom: 15px;
-} */
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 10px;
+  padding: 0 15px;
+}
 
+@media (max-width: 768px) {
+  .certificate-container {
+    padding: 25px;
+  }
 
+  .participant-name {
+    font-size: 1.6rem;
+  }
+
+  .Certificate-download {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificate-page {
+    padding: 20px 10px;
+  }
+
+  .certificate-container {
+    padding: 10px;
+    border-width: 3px;
+    margin-bottom: 0;
+  }
+
+  .certificate-container h2 {
+    font-size: 20px;
+  }
+
+  .certificate-container p {
+    margin: 0;
+    font-size: 12px;
+  }
+
+  .score-display {
+    font-size: 14px !important;
+  }
+
+  .Certificate-download {
+    padding: 12px 25px !important;
+    width: 90%;
+    margin-bottom: 25px;
+    
+  }
+
+  .participant-name {
+    font-size: 1.4rem;
+  }
+
+  .share-text {
+    font-size: 0.9rem;
+  }
+}

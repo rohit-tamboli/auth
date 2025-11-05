@@ -80,23 +80,12 @@ const Form = () => {
   };
 
   const shareMessage = `
-I just completed the Career Readiness Challenge 2025 by upDt Education! 🎓
-Testing my employability, confidence & professional skills 💼
+I just completed the Career Readiness Challenge 2025 by upDt Education! 
+Testing my employability, confidence & professional skills 
 #CareerReadyWithupDt #upDateEducation
   `;
 
-  const shareLinks = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=https://updateedu.in&quote=${encodeURIComponent(
-      shareMessage
-    )}`,
-    instagram: "https://www.instagram.com",
-    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=https://updateedu.in&title=${encodeURIComponent(
-      "Career Readiness Challenge 2025"
-    )}&summary=${encodeURIComponent(shareMessage)}`,
-    whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(
-      shareMessage
-    )}`,
-  };
+ 
 
   return (
     <>
@@ -128,7 +117,7 @@ Testing my employability, confidence & professional skills 💼
 
             {/* Actions */}
             <div className="actions">
-              <button className="btn-download" onClick={downloadCertificate}>
+              <button className="Certificate-download" onClick={downloadCertificate}>
                 Download Certificate
               </button>
 
