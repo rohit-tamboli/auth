@@ -1,0 +1,140 @@
+import React, { useEffect, useState, useRef } from "react";
+import { auth, db } from "./firebase";
+import { doc, getDoc } from "firebase/firestore";
+import html2canvas from "html2canvas";
+import { toast } from "react-toastify";
+import Home from "./Home";
+import "./Form.css";
+
+const Form = () => {
+  const [userDetails, setUserDetails] = useState(null);
+  const certificateRef = useRef(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      auth.onAuthStateChanged(async (user) => {
+        if (user) {
+          try {
+            const docRef = doc(db, "Users", user.uid);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+              setUserDetails(docSnap.data());
+              setTimeout(() => downloadCertificate(), 1500); // auto download PNG
+            } else {
+              toast.error("⚠️ User data not found in database.");
+            }
+          } catch (error) {
+            console.error(error);
+            toast.error("Failed to load user data.");
+          }
+        } else {
+          toast.error("Please login first!");
+        }
+      });
+    };
+
+    fetchUserData();
+  }, []);
+
+  const downloadCertificate = async () => {
+    if (!certificateRef.current) return;
+
+    try {
+      const canvas = await html2canvas(certificateRef.current, { scale: 2 });
+      const link = document.createElement("a");
+      link.download = `Certificate_${userDetails?.firstName || "Participant"}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+      toast.success("🎓 Certificate downloaded successfully!");
+    } catch (error) {
+      console.error("Error generating certificate:", error);
+      toast.error("Failed to generate certificate. Try again.");
+    }
+  };
+
+  const shareMessage = `
+I just completed the Career Readiness Challenge 2025 by upDt Education! 🎓
+Testing my employability, confidence & professional skills 💼
+#CareerReadyWithupDt #upDateEducation
+  `;
+
+  const shareLinks = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=https://updateedu.in&quote=${encodeURIComponent(
+      shareMessage
+    )}`,
+    instagram: "https://www.instagram.com",
+    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=https://updateedu.in&title=${encodeURIComponent(
+      "Career Readiness Challenge 2025"
+    )}&summary=${encodeURIComponent(shareMessage)}`,
+    whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMessage)}`,
+  };
+
+  return (
+    <>
+      <Home />
+      <div className="certificate-page">
+        {userDetails ? (
+          <>
+            {/* 🎓 Certificate Display */}
+            <div className="certificate-container" ref={certificateRef}>
+              <h2>🏆 Certified Participant</h2>
+              <p>This certifies that</p>
+              <h1 className="participant-name">
+                {userDetails.firstName} {userDetails.lastName}
+              </h1>
+
+              <p>
+                has successfully completed the{" "}
+                <strong>Career Readiness Challenge 2025</strong>
+              </p>
+
+              {/* 🧠 Show Score */}
+              <p className="score-display">
+                <strong>Score:</strong> {userDetails.score || "N/A"} / 10
+              </p>
+
+              <p>
+                Awarded by{" "}
+                <strong>upDt Education Technology Pvt. Ltd.</strong>
+              </p>
+              <p>Date: {new Date().toLocaleDateString()}</p>
+            </div>
+
+            {/* Actions */}
+            <div className="actions">
+              <button className="btn-download" onClick={downloadCertificate}>
+                ⬇️ Download Certificate
+              </button>
+
+              <h4>📤 Share Your Achievement</h4>
+              <p className="share-text">
+                “I just completed the Career Readiness Challenge 2025 by upDt Education!
+                Testing my employability, confidence & professional skills 💼”
+              </p>
+
+              <div className="social-buttons">
+                <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer">
+                  🔗 Facebook
+                </a>
+                <a href={shareLinks.instagram} target="_blank" rel="noopener noreferrer">
+                  📸 Instagram
+                </a>
+                <a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer">
+                  💼 LinkedIn
+                </a>
+                <a href={shareLinks.whatsapp} target="_blank" rel="noopener noreferrer">
+                  💬 WhatsApp
+                </a>
+              </div>
+            </div>
+          </>
+        ) : (
+          <p className="loading">Loading your certificate...</p>
+        )}
+      </div>
+    </>
+  );
+};
+
+export default Form;

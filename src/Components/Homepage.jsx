@@ -32,6 +32,7 @@ const Homepage = () => {
     { icon: faLinkedin, url: "https://www.linkedin.com/company/updateedu/posts/?feedView=all&viewAsMember=true" },
     { icon: faWhatsapp , url: "https://api.whatsapp.com/send/?phone=918109718211&text&type=phone_number&app_absent=0" },
   ];
+  
   return (
     <>
       <Home />

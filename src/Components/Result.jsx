@@ -4,9 +4,11 @@ import { doc, updateDoc, getDoc } from "firebase/firestore";
 import Home from "./Home";
 import { toast } from "react-toastify";
 import "./Result.css";
+import { useNavigate } from "react-router-dom";
 
 const Result = () => {
   const [userDetails, setUserDetails] = useState(null);
+  const navigate = useNavigate();
   const [followStatus, setFollowStatus] = useState({
     instagram: "",
     whatsapp: "",
@@ -33,28 +35,34 @@ const Result = () => {
   };
 
   const handleSubmit = async () => {
-    const user = auth.currentUser;
-    if (!user) {
-      toast.error("Please login first!", { position: "bottom-center" });
-      return;
-    }
+  const user = auth.currentUser;
+  
 
-    try {
-      const docRef = doc(db, "Users", user.uid);
-      await updateDoc(docRef, {
-        followStatus: followStatus,
-        followUpdatedAt: new Date(),
-      });
-      toast.success("✅ Preferences saved successfully!", {
-        position: "top-center",
-      });
-    } catch (error) {
-      console.error(error);
-      toast.error("Failed to save data. Try again.", {
-        position: "bottom-center",
-      });
-    }
-  };
+  if (!user) {
+    toast.error("Please login first!", { position: "bottom-center" });
+    return;
+  }
+
+  try {
+    const docRef = doc(db, "Users", user.uid);
+    await updateDoc(docRef, {
+      followStatus: followStatus,
+      followUpdatedAt: new Date(),
+    });
+
+    toast.success("✅ Preferences saved successfully!", {
+      position: "top-center",
+    });
+
+    navigate("/form"); // ✅ use `navigate` (lowercase), not `Navigate`
+  } catch (error) {
+    console.error(error);
+    toast.error("Failed to save data. Try again.", {
+      position: "bottom-center",
+    });
+  }
+};
+
 
   const options = [
     { value: "followed", label: "✅ Followed" },

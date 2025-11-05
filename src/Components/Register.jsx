@@ -14,7 +14,6 @@ const Register = () => {
   const [qualification, setQualification] = useState("");
   const [whatsAppNo, setWhatsAppNo] = useState("");
   const [collegeName, setCollegeName] = useState("");
-  const [courseName, setcourseName] = useState("");
   const [referralSource, setReferralSource] = useState("");
   const [location, setLocation] = useState("");
   const [referralCode, setReferralCode] = useState("");
@@ -32,7 +31,6 @@ const Register = () => {
           mobile: mobile,
           qualification: qualification,
           collegeName: collegeName,
-          courseName: courseName,
           referralSource: referralSource,
           whatsAppNo: whatsAppNo,
           location: location,
@@ -152,18 +150,7 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-3">
-            <label>Course Name</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter course name"
-              onChange={(e) => setcourseName(e.target.value)}
-              required
-            />
-          </div>
-
-          
+                  
 
           <div className="form-group">
             <label>How did you hear about this quiz?</label>
