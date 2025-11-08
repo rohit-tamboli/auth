@@ -192,7 +192,7 @@ const Mcq1 = () => {
                   onChange={handleTextChange}
                   required
                 ></textarea>
-                <p
+                <p 
                   className={`word-count ${
                     wordCount(textAnswers[`q${index + 1}`]) > 180
                       ? "warning"
@@ -210,10 +210,11 @@ const Mcq1 = () => {
               </button>
             </div>
           </div>
-        ) : (
-          <p className="loading">Loading...</p>
+        ) : ( 
+          <p className="loading">Loading...</p> 
         )}
       </div>
+      
     </>
   );
 };

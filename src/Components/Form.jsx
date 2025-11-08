@@ -143,7 +143,7 @@ Testing my employability, confidence & professional skills
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      color: "#CB444A",
+                      color: "red",
                       transition: "all 0.3s",
                     }}
                     onMouseEnter={(e) => {
@@ -151,7 +151,7 @@ Testing my employability, confidence & professional skills
                       e.currentTarget.style.transform = "scale(1.25)";
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "#CB444A";
+                      e.currentTarget.style.color = "red";
                       e.currentTarget.style.transform = "scale(1)";
                     }}
                   >

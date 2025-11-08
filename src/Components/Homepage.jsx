@@ -52,21 +52,368 @@ const Homepage = () => {
     <>
       <Home />
 
-      
-       
+      {/* box 1 start */}
 
-        <div className="first-container container-fluid bg-danger bg-gradient text-white text-center">
-          <div className="">
-            {/* Animated Heading Section */}
-            <motion.div
-              initial={{ opacity: 0, y: -40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+      <div className="inputbox-section d-flex align-items-center justify-content-center text-center text-white">
+        <div className="container-box">
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="headline display-4 fw-bold gradient-text">
+              🏆 Career Readiness Challenge 2025
+            </h1>
+            <h4 className="fw-bold text-dark fs-3 heading-text">
+              India's Biggest Online Career & Employability Quiz
+            </h4>
+          </motion.div>
+
+          <motion.div
+            className="info-card mx-auto mt-5 p-md-0 shadow-lg"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.3 }}
+          >
+            <p className=" text-dark mb-0 p-md-4 p-3 paragraph">
+              <strong>Organized by:</strong> upDt Education Technology Private
+              Limited
+              <br />
+              (Registered under the Companies Act 2013, Ministry of Corporate
+              Affairs, Govt. of India)
+              <br />
+              <strong>Initiative by:</strong> upDate – IIT Alumni-Led EdTech
+              Company
+              <br />
+              <strong>Powered by:</strong> Corporate Collaboration & National
+              Digital upDate Mega Drive Campaign
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="mt-5"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 200 }}
+          >
+            <Button
+              href="#register"
+              variant="light"
+              size="lg"
+              className="text-danger fw-semibold px-4 py-2 shadow-lg register-btn"
+              onClick={openModal}
             >
-              <h1 className="fw-bold display-5 display-md-3 mb-4 mb-lg-5 ">
-                🏆 Career Readiness Challenge 2025
-              </h1>
-              
+              Register Now
+            </Button>
+          </motion.div>
+
+          {/* About Section */}
+          <motion.div
+            className="section-card mt-5 bg-white text-dark p-4 rounded-4 shadow-sm"
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-success mb-3 heading">
+              🎓 About the Challenge
+            </h3>
+            <p className="paragraph">
+              The Career Readiness Challenge 2025 is a National-Level Online
+              Competition designed to assess and enhance the employability,
+              professional awareness, and workplace readiness of India’s youth.
+            </p>
+            <p className="paragraph">
+              Presented by <strong>upDt Education Technology Pvt. Ltd.</strong>,
+              this initiative combines learning, testing, and rewards —
+              empowering students and jobseekers to become career-ready for the
+              corporate world.
+            </p>
+            <blockquote className="fst-italic text-primary">
+              “Not just a quiz — it’s your first step towards a career-ready
+              future!”
+            </blockquote>
+          </motion.div>
+
+          {/* Why Participate & Who Can Participate */}
+          <motion.div
+            className="section-card-timeline mt-5 bg-white text-dark p-4 rounded-4 shadow-sm"
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="timeline d-flex flex-column  flex-md-row justify-content-between gap-4">
+              <ul
+                style={{ fontSize: "17px" }}
+                className="paragraph list-unstyled timeline-card text-start"
+              >
+                <h3 className="text-danger mb-3 heading">
+                  🎯 Who Can Participate?
+                </h3>
+                <li>✅ College Students - UG / PG (Any Stream)</li>
+                <li>✅ Jobseekers - Preparing for placements or interviews</li>
+                <li>
+                  ✅ Young Professionals - Exploring career growth opportunities
+                </li>
+                <li>
+                  ✅ Interns & Freshers - Building their first professional edge
+                </li>
+                <p className="fw-semibold text-secondary mt-2">
+                  📘 No prior experience required — just enthusiasm to learn,
+                  grow & win! 🚀
+                </p>
+              </ul>
+
+              <ul
+                style={{ fontSize: "17px" }}
+                className="paragraph list-unstyled timeline-card text-start"
+              >
+                <h3 className="text-warning mb-3 heading">
+                  💡 Why Participate?
+                </h3>
+                <li>
+                  ✨ Nationally Recognized Certificate from upDt Education
+                  Technology Pvt. Ltd.
+                </li>
+                <li>
+                  ✨ Boost your LinkedIn Profile & Resume with verified
+                  credentials
+                </li>
+                <li>
+                  ✨ Win from ₹1,00,000+ Prize Pool — Cash, Vouchers, Learning
+                  Passes & more
+                </li>
+                <li>
+                  ✨ Connect with MNC Mentors, Recruiters & Industry Experts
+                </li>
+                <li>
+                  ✨ Unlock access to career training sessions & internship
+                  opportunities
+                </li>
+              </ul>
+            </div>
+          </motion.div>
+
+          {/* Reward Structure */}
+          <motion.div
+            className="section-card mt-5 bg-white text-dark p-4 rounded-4 shadow-sm"
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-primary mb-3 heading">
+              🏅 Reward Structure – Worth ₹1,00,000+
+            </h3>
+            <p className="fs-5">
+              🎁 Over 500 Winners will be rewarded with exciting prizes,
+              vouchers & certificates!
+            </p>
+            <Table bordered hover responsive className="reward-table mt-4">
+              <thead className="table-light">
+                <tr>
+                  <th>Category</th>
+                  <th>Reward</th>
+                  <th>Worth</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>🥇 Top 3 Winners</td>
+                  <td>Cash Prize + Digital Trophy + Premium Certificate</td>
+                  <td>₹25,000</td>
+                </tr>
+                <tr>
+                  <td>🥈 Top 50 Achievers</td>
+                  <td>upDate Career Training Voucher + Recognition Badge</td>
+                  <td>₹20,000</td>
+                </tr>
+                <tr>
+                  <td>🥉 Next 100 Participants</td>
+                  <td>Skill Growth Voucher + eGift Card + Certificate</td>
+                  <td>₹20,000</td>
+                </tr>
+                <tr>
+                  <td>🎓 Next 200 Participants</td>
+                  <td>
+                    Internship Access Pass + Mentorship Coupon + Certificate
+                  </td>
+                  <td>₹20,000</td>
+                </tr>
+                <tr>
+                  <td>💼 Remaining Eligible Participants</td>
+                  <td>upDate Discount Coupon + Certificate</td>
+                  <td>₹15,000</td>
+                </tr>
+              </tbody>
+            </Table>
+            <p className="mt-3">
+              🪙 All participants receive an{" "}
+              <strong>Instant E-Certificate</strong> after quiz submission.
+            </p>
+          </motion.div>
+
+          {/* Timeline */}
+          <motion.div
+            className="section-card mt-5 bg-white text-dark p-4 rounded-4 shadow-sm"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-info mb-3 heading">📅 Challenge Timeline</h3>
+            <div className="timeline d-flex flex-column flex-md-row justify-content-between gap-4">
+              <ul className="paragraph list-unstyled timeline-card">
+                <h5>Phase 1 – Open National Round</h5>
+                <li>📆 Start: 1st November 2025, 1:00 PM</li>
+                <li>⏰ End: 25th November 2025, 11:45 PM</li>
+                <li>👥 Open for All Participants</li>
+                <li>📜 Reward: E-Certificate + Qualification for Phase 2</li>
+              </ul>
+
+              <ul className="paragraph list-unstyled timeline-card">
+                <h5>Phase 2 - Finalists' Round</h5>
+                <li>📆 Start: 25th November 2025</li>
+                <li>⏰ End: 5th December 2025</li>
+                <li>🎯 Eligibility: Only top scorers from Phase 1</li>
+                <li>🏆 Winners Announcement: 6th December 2025</li>
+                <li>📢 Platform: upDate Official Website & Social Media</li>
+              </ul>
+            </div>
+          </motion.div>
+
+          {/* Challenge Format */}
+          <motion.div
+            className="section-card mt-5 bg-white text-dark p-4 rounded-4 shadow-sm"
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-danger mb-3 heading">🧩 Challenge Format</h3>
+            <ul className="paragraph list-unstyled">
+              <li>
+                🧠 Total Questions: 10 (MCQ + Situational + Objective Mix)
+              </li>
+              <li>⏱️ Time Limit: 10 Minutes (600 Seconds)</li>
+              <li>
+                💯 Marking Scheme: 1 Mark per Question | No Negative Marking
+              </li>
+              <li>📲 Attempt: One per participant</li>
+              <li>📄 Mode: 100% Online</li>
+            </ul>
+          </motion.div>
+
+          {/* Final CTA Section */}
+          <motion.div
+            className="section-card text-center mt-5"
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-success mb-3 heading">
+              🚀 Ready to Prove You’re Career-Ready?
+            </h3>
+            <p className="paragraph text-black">
+              Test your skills, earn national recognition & win from a ₹1,00,000
+              prize pool!
+            </p>
+            <p className="paragraph text-black mb-4">
+              🎯 Learn • Compete • Win — with upDt Education Technology Private
+              Limited
+            </p>
+            <Button
+              href="#register"
+              variant="light"
+              size="lg"
+              className="text-danger fw-semibold px-4 py-2 shadow-lg register-btn"
+              onClick={openModal}
+            >
+              Register Now
+            </Button>
+          </motion.div>
+
+          {/* Social Media */}
+          <motion.div
+            className="section-card text-center mt-5"
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h2 className="text-primary mb-3 heading">
+              🌐 Follow & Stay Connected
+            </h2>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                gap: "10px",
+                fontSize: "50px",
+              }}
+            >
+              {socialLinks.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: "red",
+                    transition: "all 0.3s",
+                  }} 
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "red";
+                    e.currentTarget.style.transform = "scale(1.25)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "red";
+                    e.currentTarget.style.transform = "scale(1)";
+                  }}
+                >
+                  <FontAwesomeIcon icon={item.icon} />
+                </a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Modal Code */}
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            className="custom-modal"
+            overlayClassName="custom-overlay"
+          >
+            <button className="close-btn" onClick={closeModal}>
+              ✖
+            </button>
+            <div className="register-container">
+              <Register />
+            </div>
+          </Modal>
+        </div>
+      </div>
+
+      <footer className="footer">
+        <p className="footer-text">
+          Copyright © {new Date().getFullYear()}{" "}
+          <strong>upDate Education</strong> upDate is a part of upDt Education
+          Technology Private Limited All rights reserved
+        </p>
+      </footer>
+
+      {/* box 1 end */}
+
+      {/* <div className="first-container container-fluid bg-danger bg-gradient text-white ">
+        <div className="">
+    
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="headline  text-center">
+              🏆 Career Readiness Challenge 2025
+            </h1>
+            
+
+            <div className="text-center">
               <Button
                 href="#register"
                 variant="light"
@@ -76,39 +423,37 @@ const Homepage = () => {
               >
                 Register Now
               </Button>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            
-
-            {/* Animated Information Section */}
-            <motion.div
-              className="mt-4 mt-lg-5 mt-ls-5 first-section-card  p-4 p-md-5 "
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              <h4 className="text-danger mb-3">
-                India's Biggest Online Career & Employability Quiz
-              </h4>
-              <p className="mt-3 text-dark fs-5 mb-0">
-                <strong>Organized by:</strong> upDt Education Technology Private
-                Limited <br />
-                (Registered under the Companies Act 2013, Ministry of Corporate
-                Affairs, Govt. of India)
-                <br />
-                <strong>Initiative by:</strong> upDate – IIT Alumni-Led EdTech
-                Company
-                <br />
-                <strong>Powered by:</strong> Corporate Collaboration & National
-                Digital upDate Mega Drive Campaign
-              </p>
-            </motion.div>
-          </div>
+          
+          <motion.div
+            className="mt-4 mt-lg-5 mt-ls-5 first-section-card  p-4 p-md-5 "
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <h4 className="text-danger mb-3">
+              India's Biggest Online Career & Employability Quiz
+            </h4>
+            <p className="mt-3 text-dark fs-5 mb-0">
+              <strong>Organized by:</strong> upDt Education Technology Private
+              Limited <br />
+              (Registered under the Companies Act 2013, Ministry of Corporate
+              Affairs, Govt. of India)
+              <br />
+              <strong>Initiative by:</strong> upDate – IIT Alumni-Led EdTech
+              Company
+              <br />
+              <strong>Powered by:</strong> Corporate Collaboration & National
+              Digital upDate Mega Drive Campaign
+            </p>
+          </motion.div>
         </div>
+      </div> */}
 
-        <div className="homepage-bg">
-
-        {/* <div className="heading">
+      {/* <div className="homepage-bg"> */}
+      {/* <div className="heading">
           <h1 className="fw-bold heading-text text-center text-md-star text-danger title  ">
             🏆 Career Readiness Challenge 2025
           </h1>
@@ -121,10 +466,12 @@ const Homepage = () => {
           >
             Register Now
           </Button>
+
+          
         </div> */}
 
-        {/* Modal Code */}
-        <Modal
+      {/* Modal Code */}
+      {/* <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           className="custom-modal"
@@ -136,11 +483,9 @@ const Homepage = () => {
           <div className="register-container">
             <Register />
           </div>
-        </Modal>
+        </Modal> */}
 
-        
-
-        {/* <motion.div
+      {/* <motion.div
           className=" mb-5 section-card"
           initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -163,8 +508,8 @@ const Homepage = () => {
           </p>
         </motion.div> */}
 
-        {/* About Section */}
-        <motion.div
+      {/* About Section */}
+      {/* <motion.div
           className="section-card"
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -186,10 +531,10 @@ const Homepage = () => {
             “Not just a quiz — it’s your first step towards a career-ready
             future!”
           </blockquote>
-        </motion.div>
+        </motion.div> */}
 
-        {/* Why Participate & Who Can Participate */}
-        <motion.div
+      {/* Why Participate & Who Can Participate */}
+      {/* <motion.div
           className="section-card-timeline"
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -245,62 +590,10 @@ const Homepage = () => {
               </li>
             </ul>
           </div>
-        </motion.div>
-
-        {/* Who Can Participate */}
-        {/* <motion.div
-          className="section-card"
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h3 className="text-danger mb-3">🎯 Who Can Participate?</h3>
-          <ul className="fs-5 list-unstyled">
-            <li>✅ College Students – UG / PG (Any Stream)</li>
-            <li>✅ Jobseekers – Preparing for placements or interviews</li>
-            <li>
-              ✅ Young Professionals – Exploring career growth opportunities
-            </li>
-            <li>
-              ✅ Interns & Freshers – Building their first professional edge
-            </li>
-          </ul>
-          <p className="fw-semibold text-secondary">
-            📘 No prior experience required — just enthusiasm to learn, grow &
-            win! 🚀
-          </p>
         </motion.div> */}
 
-        {/* Why Participate */}
-        {/* <motion.div
-          className="section-card"
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h3 className="text-warning mb-3">💡 Why Participate?</h3>
-          <ul className="fs-5 list-unstyled">
-            <li>
-              ✨ Nationally Recognized Certificate from upDt Education
-              Technology Pvt. Ltd.
-            </li>
-            <li>
-              ✨ Boost your LinkedIn Profile & Resume with verified credentials
-            </li>
-            <li>
-              ✨ Win from ₹1,00,000+ Prize Pool — Cash, Vouchers, Learning
-              Passes & more
-            </li>
-            <li>✨ Connect with MNC Mentors, Recruiters & Industry Experts</li>
-            <li>
-              ✨ Unlock access to career training sessions & internship
-              opportunities
-            </li>
-          </ul>
-        </motion.div> */}
-
-        {/* Reward Structure */}
-        <motion.div
+      {/* Reward Structure */}
+      {/* <motion.div
           className="section-card"
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -355,10 +648,10 @@ const Homepage = () => {
             🪙 All participants receive an{" "}
             <strong>Instant E-Certificate</strong> after quiz submission.
           </p>
-        </motion.div>
+        </motion.div> */}
 
-        {/* Timeline */}
-        <motion.div
+      {/* Timeline */}
+      {/* <motion.div
           className="section-card "
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -393,11 +686,9 @@ const Homepage = () => {
               </li>
             </ul>
           </div>
-        </motion.div>
+        </motion.div> */}
 
-        {/* </Container> */}
-
-        <motion.div
+      {/* <motion.div
           className="section-card"
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -441,10 +732,10 @@ const Homepage = () => {
           >
             Register Now
           </Button>
-        </motion.div>
+        </motion.div> */}
 
-        {/* Social Media */}
-        <motion.div
+      {/* Social Media */}
+      {/* <motion.div
           className="section-card text-center"
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -483,9 +774,9 @@ const Homepage = () => {
               </a>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
 
-        {/* <motion.div
+      {/* <motion.div
           className="section-card text-center"
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -531,16 +822,15 @@ const Homepage = () => {
             ))}
           </div>
         </motion.div> */}
-        
-      </div>
+      {/* </div> */}
 
-      <footer className="footer">
+      {/* <footer className="footer">
         <p className="footer-text">
           Copyright © {new Date().getFullYear()}{" "}
           <strong>upDate Education</strong> upDate is a part of upDt Education
           Technology Private Limited All rights reserved
         </p>
-      </footer>
+      </footer> */}
     </>
   );
 };

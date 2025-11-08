@@ -20,7 +20,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   margin-top: 70px;
 }
-
+ 
 .question-card {
   background: #fff;
   border-radius: 10px;
@@ -31,7 +31,7 @@
 }
 
 .quiz-title {
-  color: #dc3545;
+  color: red;
   font-weight: 700;
 }
 
@@ -71,7 +71,7 @@
 
 .option-label {
   font-weight: bold;
-  color: #007bff;
+  color: #000;
   margin-right: 5px;
 }
 
@@ -80,8 +80,16 @@
   color: #555;
 }
 
+.submit-btn {
+  background-color: red !important;
+}
+
 @media (max-width: 768px) {
   .options-grid {
     grid-template-columns: 1fr; /* Stack vertically on mobile */
+  }
+
+  .quiz-title {
+    font-size: 21px;
   }
 }

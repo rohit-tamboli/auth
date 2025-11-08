@@ -92,10 +92,10 @@ const Home = () => {
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id="offcanvasNavbarLabel-expand-md"></Offcanvas.Title>
             </Offcanvas.Header>
-
+ 
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 ms-auto align-items-center d-flex gap-3">
-                <Nav.Link as={Link} to="/" className="text-danger fw-semibold">
+                <Nav.Link as={Link} to="/" style={{color: "red"}} className=" fw-semibold">
                   Home
                 </Nav.Link>
                 {/* <Nav.Link as={Link} to="/register" className="text-dark">

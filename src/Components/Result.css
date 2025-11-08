@@ -60,3 +60,11 @@
   background: #1e40af;
   transform: scale(1.05);
 }
+
+@media (max-width: 768px) {
+  .follow-container {
+   
+    margin: 0px auto;
+   
+  }
+}
