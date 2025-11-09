@@ -772,7 +772,7 @@ const Homepage = () => {
               Test your skills, earn national recognition & win from a ₹1,00,000
               prize pool!
             </p>
-            <p className="paragraph text-black mb-4">
+            <p className="paragraph text-black ">
               🎯 Learn • Compete • Win — with upDt Education Technology Private
               Limited
             </p>
@@ -780,7 +780,7 @@ const Homepage = () => {
               href="#register"
               variant="light"
               size="lg"
-              className="text-danger fw-semibold px-4 py-2 shadow-lg register-btn"
+              className="text-danger fw-semibold px-4 py-2 shadow-lg register-btn mt-2"
               onClick={openModal}
             >
               Register Now
@@ -852,8 +852,8 @@ const Homepage = () => {
       <footer className="footer">
         <p className="footer-text">
           Copyright © {new Date().getFullYear()}{" "}
-          <strong>upDate Education</strong> upDate is a part of upDt Education
-          Technology Private Limited All rights reserved
+          <strong>upDate Education</strong> is a part of upDate Education
+          Technology Private Limited. All rights reserved.
         </p>
       </footer>
 
