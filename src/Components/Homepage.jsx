@@ -157,6 +157,7 @@ const Homepage = () => {
               Register Now
             </Button>
           </motion.div>
+
           {/* About the Challenge */}
           <motion.div
             initial={{ opacity: 0, y: 80 }}
@@ -164,9 +165,14 @@ const Homepage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-5"
           >
-            <h3 className="fw-bold fs-1 mb-3 mt-5 gradient-text">
+            {/* <h3 className="fw-bold fs-1 mb-3 mt-5 gradient-text">
+              🎓 About the Challenge
+            </h3> */}
+
+            <h3 className="fw-bold fs-1 mb-5 mt-5 gradient-text gradient-underline">
               🎓 About the Challenge
             </h3>
+
             <p
               className="fs-5 text-muted mx-auto"
               style={{ maxWidth: "800px" }}
@@ -202,13 +208,20 @@ const Homepage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-9"
           >
-            <h3 className="fw-bold fs-1 mb-3 gradient-text">
+            <h3 className="fw-bold fs-1 mb-3 gradient-text gradient-underline">
               💼 Who Can Participate?
             </h3>
             <p className="text-muted fs-5 mb-0">
               Open for all who are ready to learn, grow & prove their potential!
             </p>
           </motion.div>
+
+          <motion.div
+            className=""
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.3 }}
+          >
 
           <Row className="gy-4 section-card-timeline">
             {whoItems.map((item, index) => (
@@ -241,6 +254,7 @@ const Homepage = () => {
               </Col>
             ))}
           </Row>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0 }}
@@ -258,11 +272,20 @@ const Homepage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-0"
           >
-            <h3 className="fw-bold fs-1 gradient-text mb-3">🎯 Why Participate?</h3>
+            <h3 className="fw-bold fs-1 gradient-text mb-3 gradient-underline">
+              🎯 Why Participate?
+            </h3>
             <p className="text-muted fs-5 mb-0">
               Because every step you take here pushes you closer to success!
             </p>
           </motion.div>
+
+          <motion.div
+            className=""
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.3 }}
+          >
 
           <Row className="gy-4 section-card-timeline">
             {whyItems.map((item, index) => (
@@ -298,6 +321,7 @@ const Homepage = () => {
               </Col>
             ))}
           </Row>
+          </motion.div>
 
           {/* About Section */}
           {/* <motion.div
@@ -391,7 +415,7 @@ const Homepage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-3"
           >
-            <h3 className="fw-bold fs-1 gradient-text mb-3">
+            <h3 className="fw-bold fs-1 gradient-text mb-3 gradient-underline">
               🏆 Reward Structure – Worth ₹1,00,000+
             </h3>
             <p className="text-muted fs-5">
@@ -401,6 +425,7 @@ const Homepage = () => {
           </motion.div>
 
           {/* Reward Structure */}
+
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -532,7 +557,7 @@ const Homepage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-6 "
           >
-            <h3 className="fw-bold fs-1 gradient-text mb-3 ">
+            <h3 className="fw-bold fs-1 gradient-text mb-3 gradient-underline">
               ⏰ Challenge Timeline
             </h3>
             <p className="text-muted fs-5 mb-0">
@@ -540,6 +565,13 @@ const Homepage = () => {
               Challenge 2025.
             </p>
           </motion.div>
+
+          <motion.div
+            className=""
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.3 }}
+          > 
 
           <Row className="gy-4 section-card-timeline">
             {[
@@ -595,6 +627,7 @@ const Homepage = () => {
               </Col>
             ))}
           </Row>
+          </motion.div>
 
           {/* Challenge Format */}
           <motion.div
@@ -603,12 +636,21 @@ const Homepage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-0"
           >
-            <h3 className="fw-bold fs-1 gradient-text mb-3">🧩 Challenge Format</h3>
+            <h3 className="fw-bold fs-1 gradient-text mb-3 gradient-underline">
+              🧩 Challenge Format
+            </h3>
             <p className="text-muted fs-5 mb-0">
               Get ready to test your skills in a fast-paced, career-readiness
               challenge!
             </p>
           </motion.div>
+
+          <motion.div
+            className=""
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.3 }}
+          >
 
           <Row className="gy-4 mb-0 justify-content-center section-card-timeline">
             {[
@@ -649,6 +691,7 @@ const Homepage = () => {
               </Col>
             ))}
           </Row>
+          </motion.div>
 
           {/* Timeline */}
           {/* <motion.div
@@ -706,7 +749,7 @@ const Homepage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="fs-2 gradient-text mb-3 heading">
+            <h3 className="fs-2 gradient-text mb-3 heading gradient-underline">
               🚀 Ready to Prove You’re Career-Ready?
             </h3>
             <p className="paragraph text-black">
@@ -729,45 +772,46 @@ const Homepage = () => {
           </motion.div>
 
           {/* Social Media */}
+          {/* 🌐 Social Media Section */}
           <motion.div
-            className=" text-center mt-5"
+            className="text-center mt-5"
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true }} // 👈 stays visible after appearing
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h2 className="fs-2 gradient-text mb-3 heading">
+            <h2 className="fs-2 gradient-text mb-3 heading gradient-underline">
               🌐 Follow & Stay Connected
             </h2>
+
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
-                gap: "10px",
+                gap: "20px",
                 fontSize: "50px",
+                flexWrap: "wrap", // responsive layout for small screens
               }}
             >
               {socialLinks.map((item, index) => (
-                <a
+                <motion.a
                   key={index}
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
                     color: "red",
-                    transition: "all 0.3s",
+                    textDecoration: "none",
                   }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "red";
-                    e.currentTarget.style.transform = "scale(1.25)";
+                  whileHover={{
+                    scale: 1.25,
+                    color: "#FF1D00", // brighter red on hover
+                    transition: { duration: 0.3 },
                   }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "red";
-                    e.currentTarget.style.transform = "scale(1)";
-                  }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <FontAwesomeIcon icon={item.icon} />
-                </a>
+                </motion.a>
               ))}
             </div>
           </motion.div>
