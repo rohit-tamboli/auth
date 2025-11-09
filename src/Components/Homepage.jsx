@@ -288,7 +288,7 @@ const Homepage = () => {
           </motion.div>
 
           <motion.div
-            className=""
+            className="mb-5"
             initial={{ opacity: 0, scale: 0.9, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
@@ -497,7 +497,7 @@ const Homepage = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-center mt-4 fs-5 fw-semibold text-primary"
+            className="text-center mt-4 mb-5 fs-5 fw-semibold text-primary"
           >
             🪙 All participants receive an{" "}
             <span className="text-success">Instant E-Certificate</span> after
@@ -579,7 +579,7 @@ const Homepage = () => {
           </motion.div>
 
           <motion.div
-            className=""
+            className="mb-5"
             initial={{ opacity: 0, scale: 0.9, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
@@ -661,7 +661,7 @@ const Homepage = () => {
           </motion.div>
 
           <motion.div
-            className=""
+            className="mb-5"
             initial={{ opacity: 0, scale: 0.9, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
