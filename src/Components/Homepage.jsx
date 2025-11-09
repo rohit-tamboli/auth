@@ -127,7 +127,7 @@ const Homepage = () => {
             transition={{ duration: 0.9, delay: 0.3 }}
           >
             <p className=" text-dark mb-0 p-md-4 p-3 paragraph">
-              <strong>Organized by:</strong> upDt Education Technology Private
+              <strong>Organized by:</strong> upDate Education Technology Private
               Limited
               <br />
               (Registered under the Companies Act 2013, Ministry of Corporate
