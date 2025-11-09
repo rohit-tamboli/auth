@@ -218,42 +218,47 @@ const Homepage = () => {
 
           <motion.div
             className=""
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.3 }}
+            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
           >
-
-          <Row className="gy-4 section-card-timeline">
-            {whoItems.map((item, index) => (
-              <Col key={index} xs={12} md={6} lg={3} className="d-flex">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                  className="flex-fill"
-                >
-                  <Card
-                    className="border-0 text-center p-3 rounded-4 shadow-sm flex-fill"
-                    style={{
-                      background: "#fff",
-                      boxShadow: "0 6px 15px rgba(0,0,0,0.1)",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      height: "100%",
-                    }}
+            <Row className="gy-4 section-card-timeline">
+              {whoItems.map((item, index) => (
+                <Col key={index} xs={12} md={6} lg={3} className="d-flex">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="flex-fill"
                   >
-                    <div>
-                      <div className="fs-1 mb-3">{item.icon}</div>
-                      <Card.Title className="fw-bold fs-5 text-dark mb-3">
-                        {item.title}
-                      </Card.Title>
-                      <Card.Text className="text-muted">{item.text}</Card.Text>
-                    </div>
-                  </Card>
-                </motion.div>
-              </Col>
-            ))}
-          </Row>
+                    <Card
+                      className="border-0 text-center p-3 rounded-4 shadow-sm flex-fill"
+                      style={{
+                        background: "#fff",
+                        boxShadow: "0 6px 15px rgba(0,0,0,0.1)",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        height: "100%",
+                      }}
+                    >
+                      <div>
+                        <div className="fs-1 mb-3">{item.icon}</div>
+                        <Card.Title className="fw-bold fs-5 text-dark mb-3">
+                          {item.title}
+                        </Card.Title>
+                        <Card.Text className="text-muted">
+                          {item.text}
+                        </Card.Text>
+                      </div>
+                    </Card>
+                  </motion.div>
+                </Col>
+              ))}
+            </Row>
           </motion.div>
 
           <motion.p
@@ -282,45 +287,50 @@ const Homepage = () => {
 
           <motion.div
             className=""
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.3 }}
+            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
           >
-
-          <Row className="gy-4 section-card-timeline">
-            {whyItems.map((item, index) => (
-              <Col key={index} xs={12} md={6} lg={4} className="d-flex">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                  className="flex-fill"
-                >
-                  <Card
-                    className="border-0 text-center p-4 rounded-4 shadow-sm flex-fill"
-                    style={{
-                      background: "rgba(255, 255, 255, 0.8)",
-                      backdropFilter: "blur(10px)",
-                      WebkitBackdropFilter: "blur(10px)",
-                      border: "1px solid rgba(255, 255, 255, 0.3)",
-                      boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      height: "100%",
-                    }}
+            <Row className="gy-4 section-card-timeline">
+              {whyItems.map((item, index) => (
+                <Col key={index} xs={12} md={6} lg={4} className="d-flex">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="flex-fill"
                   >
-                    <div>
-                      <div className="fs-1 mb-3">{item.icon}</div>
-                      <Card.Title className="fw-bold fs-5 text-dark mb-3">
-                        {item.title}
-                      </Card.Title>
-                      <Card.Text className="text-muted">{item.text}</Card.Text>
-                    </div>
-                  </Card>
-                </motion.div>
-              </Col>
-            ))}
-          </Row>
+                    <Card
+                      className="border-0 text-center p-4 rounded-4 shadow-sm flex-fill"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.8)",
+                        backdropFilter: "blur(10px)",
+                        WebkitBackdropFilter: "blur(10px)",
+                        border: "1px solid rgba(255, 255, 255, 0.3)",
+                        boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        height: "100%",
+                      }}
+                    >
+                      <div>
+                        <div className="fs-1 mb-3">{item.icon}</div>
+                        <Card.Title className="fw-bold fs-5 text-dark mb-3">
+                          {item.title}
+                        </Card.Title>
+                        <Card.Text className="text-muted">
+                          {item.text}
+                        </Card.Text>
+                      </div>
+                    </Card>
+                  </motion.div>
+                </Col>
+              ))}
+            </Row>
           </motion.div>
 
           {/* About Section */}
@@ -568,65 +578,68 @@ const Homepage = () => {
 
           <motion.div
             className=""
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.3 }}
-          > 
-
-          <Row className="gy-4 section-card-timeline">
-            {[
-              {
-                title: "Phase 1 – Open National Round",
-                details: [
-                  "🟢 Start: 1st November 2025, 1:00 PM",
-                  "🔚 End: 25th November 2025, 11:45 PM",
-                  "🌍 Open for All Participants",
-                  "🎖️ Reward: E-Certificate + Qualification for Phase 2",
-                ],
-                gradient:
-                  "linear-gradient(135deg, rgba(212, 237, 218, 0.9), rgba(255,255,255,0.8))",
-              },
-              {
-                title: "Phase 2 – Finalists' Round",
-                details: [
-                  "🚀 Start: 25th November 2025",
-                  "🏁 End: 5th December 2025",
-                  "🏅 Eligibility: Only top scorers from Phase 1",
-                  "📢 Winners Announcement: 6th December 2025",
-                  "🌐 Platform: upDate Official Website & Social Media",
-                ],
-                gradient:
-                  "linear-gradient(135deg, rgba(231, 241, 255, 0.9), rgba(255,255,255,0.8))",
-              },
-            ].map((phase, i) => (
-              <Col xs={12} md={6} key={i} className="d-flex">
-                <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                  className="flex-fill"
-                >
-                  <Card
-                    className="border-0 rounded-4 shadow-sm text-start p-4 flex-fill"
-                    style={{
-                      background: phase.gradient,
-                      backdropFilter: "blur(12px)",
-                      WebkitBackdropFilter: "blur(12px)",
-                      border: "1px solid rgba(255,255,255,0.3)",
-                      boxShadow: "0 8px 25px rgba(0, 0, 0, 0.08)",
-                      height: "100%",
-                    }}
+            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+          >
+            <Row className="gy-4 section-card-timeline">
+              {[
+                {
+                  title: "Phase 1 – Open National Round",
+                  details: [
+                    "🟢 Start: 1st November 2025, 1:00 PM",
+                    "🔚 End: 25th November 2025, 11:45 PM",
+                    "🌍 Open for All Participants",
+                    "🎖️ Reward: E-Certificate + Qualification for Phase 2",
+                  ],
+                  gradient:
+                    "linear-gradient(135deg, rgba(212, 237, 218, 0.9), rgba(255,255,255,0.8))",
+                },
+                {
+                  title: "Phase 2 – Finalists' Round",
+                  details: [
+                    "🚀 Start: 25th November 2025",
+                    "🏁 End: 5th December 2025",
+                    "🏅 Eligibility: Only top scorers from Phase 1",
+                    "📢 Winners Announcement: 6th December 2025",
+                    "🌐 Platform: upDate Official Website & Social Media",
+                  ],
+                  gradient:
+                    "linear-gradient(135deg, rgba(231, 241, 255, 0.9), rgba(255,255,255,0.8))",
+                },
+              ].map((phase, i) => (
+                <Col xs={12} md={6} key={i} className="d-flex">
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="flex-fill"
                   >
-                    <h5 className="fw-bold mb-3 text-dark">{phase.title}</h5>
-                    {phase.details.map((line, j) => (
-                      <p key={j} className="text-muted fw-semibold mb-2">
-                        {line}
-                      </p>
-                    ))}
-                  </Card>
-                </motion.div>
-              </Col>
-            ))}
-          </Row>
+                    <Card
+                      className="border-0 rounded-4 shadow-sm text-start p-4 flex-fill"
+                      style={{
+                        background: phase.gradient,
+                        backdropFilter: "blur(12px)",
+                        WebkitBackdropFilter: "blur(12px)",
+                        border: "1px solid rgba(255,255,255,0.3)",
+                        boxShadow: "0 8px 25px rgba(0, 0, 0, 0.08)",
+                        height: "100%",
+                      }}
+                    >
+                      <h5 className="fw-bold mb-3 text-dark">{phase.title}</h5>
+                      {phase.details.map((line, j) => (
+                        <p key={j} className="text-muted fw-semibold mb-2">
+                          {line}
+                        </p>
+                      ))}
+                    </Card>
+                  </motion.div>
+                </Col>
+              ))}
+            </Row>
           </motion.div>
 
           {/* Challenge Format */}
@@ -647,50 +660,53 @@ const Homepage = () => {
 
           <motion.div
             className=""
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.3 }}
+            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
           >
-
-          <Row className="gy-4 mb-0 justify-content-center section-card-timeline">
-            {[
-              {
-                icon: "🧠",
-                text: "Total Questions: 10 (MCQ + Situational + Objective Mix)",
-              },
-              { icon: "⏱️", text: "Time Limit: 10 Minutes (600 Seconds)" },
-              {
-                icon: "💯",
-                text: "Marking Scheme: 1 Mark per Question | No Negative Marking",
-              },
-              { icon: "📲", text: "Attempt: One per participant" },
-              { icon: "📄", text: "Mode: 100% Online" },
-            ].map((item, i) => (
-              <Col xs={12} md={6} lg={4} key={i} className="d-flex">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                  className="flex-fill"
-                >
-                  <Card
-                    className="border-0 rounded-4 text-center p-4 flex-fill"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,247,255,0.8))",
-                      backdropFilter: "blur(12px)",
-                      WebkitBackdropFilter: "blur(12px)",
-                      border: "1px solid rgba(255,255,255,0.3)",
-                      boxShadow: "0 8px 25px rgba(0, 0, 0, 0.08)",
-                      height: "100%",
-                    }}
+            <Row className="gy-4 mb-0 justify-content-center section-card-timeline">
+              {[
+                {
+                  icon: "🧠",
+                  text: "Total Questions: 10 (MCQ + Situational + Objective Mix)",
+                },
+                { icon: "⏱️", text: "Time Limit: 10 Minutes (600 Seconds)" },
+                {
+                  icon: "💯",
+                  text: "Marking Scheme: 1 Mark per Question | No Negative Marking",
+                },
+                { icon: "📲", text: "Attempt: One per participant" },
+                { icon: "📄", text: "Mode: 100% Online" },
+              ].map((item, i) => (
+                <Col xs={12} md={6} lg={4} key={i} className="d-flex">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="flex-fill"
                   >
-                    <div className="fs-1 mb-3">{item.icon}</div>
-                    <p className="fw-semibold text-dark mb-0">{item.text}</p>
-                  </Card>
-                </motion.div>
-              </Col>
-            ))}
-          </Row>
+                    <Card
+                      className="border-0 rounded-4 text-center p-4 flex-fill"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,247,255,0.8))",
+                        backdropFilter: "blur(12px)",
+                        WebkitBackdropFilter: "blur(12px)",
+                        border: "1px solid rgba(255,255,255,0.3)",
+                        boxShadow: "0 8px 25px rgba(0, 0, 0, 0.08)",
+                        height: "100%",
+                      }}
+                    >
+                      <div className="fs-1 mb-3">{item.icon}</div>
+                      <p className="fw-semibold text-dark mb-0">{item.text}</p>
+                    </Card>
+                  </motion.div>
+                </Col>
+              ))}
+            </Row>
           </motion.div>
 
           {/* Timeline */}
