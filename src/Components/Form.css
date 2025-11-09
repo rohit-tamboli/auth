@@ -29,6 +29,8 @@
   font-weight: 700;
   color: #007bff;
   word-wrap: break-word;
+  margin-bottom: 15px;
+  margin-top: -2px;
 }
 
 /* 💬 Score Display */
@@ -78,6 +80,10 @@
   padding: 0 15px;
 }
 
+.certificate-container p {
+  margin-bottom: 10px;
+}
+
 @media (max-width: 768px) {
   .certificate-container {
     padding: 25px;
@@ -85,6 +91,8 @@
 
   .participant-name {
     font-size: 1.6rem;
+    margin-bottom: 7px;
+    margin-top: 1px;
   }
 
   .Certificate-download {
@@ -121,11 +129,12 @@
     padding: 12px 25px !important;
     width: 90%;
     margin-bottom: 25px;
-    
   }
 
   .participant-name {
     font-size: 1.4rem;
+    margin-bottom: 7px;
+    margin-top: 1px;
   }
 
   .share-text {

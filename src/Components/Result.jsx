@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { auth, db } from "./firebase";
-import { doc, updateDoc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Home from "./Home";
 import { toast } from "react-toastify";
-import "./Result.css";
 import { useNavigate } from "react-router-dom";
+import "./Result.css";
 
 const Result = () => {
   const [userDetails, setUserDetails] = useState(null);
-  const navigate = useNavigate();
   const [followStatus, setFollowStatus] = useState({
     instagram: "",
     whatsapp: "",
@@ -18,51 +17,57 @@ const Result = () => {
     telegram: "",
   });
 
+  const navigate = useNavigate();
+
+  // 🔹 Fetch user data on mount
   useEffect(() => {
-    auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        const docRef = doc(db, "Users", user.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          setUserDetails(docSnap.data());
+    const fetchUserData = async () => {
+      auth.onAuthStateChanged(async (user) => {
+        if (user) {
+          const docRef = doc(db, "Users", user.uid);
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            setUserDetails(docSnap.data());
+          }
         }
-      }
-    });
+      });
+    };
+    fetchUserData();
   }, []);
 
+  // 🔹 Handle select change
   const handleSelect = (platform, value) => {
     setFollowStatus({ ...followStatus, [platform]: value });
   };
 
+  // 🔹 Save to Firestore
   const handleSubmit = async () => {
-  const user = auth.currentUser;
-  
+    const user = auth.currentUser;
 
-  if (!user) {
-    toast.error("Please login first!", { position: "bottom-center" });
-    return;
-  }
+    if (!user) {
+      toast.error("Please login first!", { position: "bottom-center" });
+      return;
+    }
 
-  try {
-    const docRef = doc(db, "Users", user.uid);
-    await updateDoc(docRef, {
-      followStatus: followStatus,
-      followUpdatedAt: new Date(),
-    });
+    try {
+      const docRef = doc(db, "Users", user.uid);
+      await updateDoc(docRef, {
+        followStatus: followStatus,
+        followUpdatedAt: new Date(),
+      });
 
-    toast.success("✅ Preferences saved successfully!", {
-      position: "top-center",
-    });
+      toast.success("✅ Preferences saved successfully!", {
+        position: "top-center",
+      });
 
-    navigate("/form"); // ✅ use `navigate` (lowercase), not `Navigate`
-  } catch (error) {
-    console.error(error);
-    toast.error("Failed to save data. Try again.", {
-      position: "bottom-center",
-    });
-  }
-};
-
+      navigate("/form");
+    } catch (error) {
+      console.error(error);
+      toast.error("❌ Failed to save data. Try again.", {
+        position: "bottom-center",
+      });
+    }
+  };
 
   const options = [
     { value: "followed", label: "✅ Followed" },
@@ -73,56 +78,68 @@ const Result = () => {
   return (
     <>
       <Home />
-      <div className="follow-container">
-        <h2 className="text-center">🎉 Congratulations!</h2>
-        <p className="text-center">
-          You’ve successfully submitted your quiz. <br />
-          Stay updated about results, winner announcements, and internship
-          updates by following us on our official social media channels 👇
-        </p>
+      <div className="result-container">
+        {userDetails ? (
+          <div className="result-card shadow-lg rounded-4 p-4 bg-white">
+            <h3 className="quiz-title text-center mb-4 gradient-text">
+              🎉 Congratulations!
+            </h3> 
+            <p className="text-center  title-text mb-4">
+              You’ve successfully completed the Career Readiness Challenge Quiz. <br />
+              Stay updated about results, winners, and internships by following
+              us on our official platforms 👇
+            </p>
 
-        <div className="follow-table">
-          {[
-            "Instagram",
-            "WhatsApp",
-            "Facebook",
-            "LinkedIn",
-            "YouTube",
-            "Telegram",
-          ].map((platform) => (
-            <div key={platform} className="follow-row">
-              <label>{platform}</label>
-              <select
-                value={followStatus[platform.toLowerCase()] || ""}
-                onChange={(e) =>
-                  handleSelect(platform.toLowerCase(), e.target.value)
-                }
-                required
-              >
-                <option value="">Select status</option>
-                {options.map((opt) => (
-                  <option key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </option>
-                ))}
-              </select>
+            {/* Follow Section */}
+            <div className="follow-table mx-auto">
+              {[
+                "Instagram",
+                "WhatsApp",
+                "Facebook",
+                "LinkedIn",
+                "YouTube",
+                "Telegram",
+              ].map((platform) => (
+                <div key={platform} className="follow-row d-flex justify-content-between align-items-center mb-2 p-2 rounded-3 bg-light">
+                  <label className="fw-semibold">{platform}</label>
+                  <select
+                    className="form-select w-auto"
+                    value={followStatus[platform.toLowerCase()] || ""}
+                    onChange={(e) =>
+                      handleSelect(platform.toLowerCase(), e.target.value)
+                    }
+                    required
+                  >
+                    <option value="">Select status</option>
+                    {options.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className="note-section">
-          <p>
-            🧾 <strong>Note:</strong> All official announcements, winner results,
-            and internship updates will be shared only on our verified social
-            media pages. Follow now to avoid missing important notifications!
-          </p>
-        </div>
+            {/* Note Section */}
+            <div className="note-section mt-4 text-muted">
+              <p>
+                🧾 <strong>Note:</strong> All official updates, winner
+                announcements, and internship results will be shared only on our
+                verified pages. Follow now to stay informed!
+              </p>
+            </div>
 
-        <div className="submit-section">
-          <button className="submit-btn" onClick={handleSubmit}>
-            Save Follow Status
-          </button>
-        </div>
+            {/* Button */}
+            <div className="text-center mt-4">
+              <button className="btn btn-success px-4 py-2 fw-semibold" onClick={handleSubmit}>
+                Save Follow Status
+              </button>
+            </div>
+          </div>
+        ) : (
+          <p className="text-center text-muted fs-5 mt-5">Loading your Following...</p>
+        )}
       </div>
     </>
   );

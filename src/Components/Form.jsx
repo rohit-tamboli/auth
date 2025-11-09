@@ -4,7 +4,7 @@ import { doc, getDoc } from "firebase/firestore";
 import html2canvas from "html2canvas";
 import { toast } from "react-toastify";
 import Home from "./Home";
-import "./Form.css";
+import "./Form.css"; 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -33,7 +33,7 @@ const Form = () => {
       url: "https://api.whatsapp.com/send/?phone=918109718211&text&type=phone_number&app_absent=0",
     },
   ];
-
+ 
   useEffect(() => {
     const fetchUserData = async () => {
       auth.onAuthStateChanged(async (user) => {
@@ -89,7 +89,7 @@ Testing my employability, confidence & professional skills
 
   return (
     <>
-      <Home />
+      <Home /> 
       <div className="certificate-page">
         {userDetails ? (
           <>

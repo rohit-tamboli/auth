@@ -846,7 +846,7 @@ const Homepage = () => {
               <Register />
             </div>
           </Modal>
-        </div>
+        </div> 
       </div>
 
       <footer className="footer">

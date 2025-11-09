@@ -17,7 +17,7 @@ const Mcq1 = () => {
     q5: "",
   });
   const navigate = useNavigate();
-
+ 
   // 🔹 Fetch user data
   useEffect(() => {
     const fetchUserData = async () => {
@@ -145,14 +145,14 @@ const Mcq1 = () => {
     "What does “Career Readiness” mean to you personally? How are you preparing for real-world opportunities?",
     "If selected for Phase 2, how will you utilize the opportunity?",
   ];
-
+ 
   return (
     <>
       <Home />
       <div className="question-container">
         {userDetails ? (
           <div className="question-card">
-            <h3 className="quiz-title text-center mb-4">
+            <h3 className="quiz-title text-center mb-4 gradient-text">
               🎯 Section A: Multiple Choice Questions (MCQs)
             </h3>
 
@@ -211,8 +211,8 @@ const Mcq1 = () => {
             </div>
           </div>
         ) : ( 
-          <p className="loading">Loading...</p> 
-        )}
+          <p className="loading">Loading your MCQs...</p> 
+        )} 
       </div>
       
     </>
