@@ -64,7 +64,7 @@
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: #f8f9fa;
-  max-width: 750px;
+  max-width: 800px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -87,7 +87,7 @@
   max-width: 800px;
   margin: 0 auto;
   background: #ffffff;
-  border-left: 6px solid #198754; /* green accent */
+  /* border-left: 6px solid #198754;  */
   text-align: left;
 }
 
@@ -100,7 +100,7 @@
 .section-card-timeline {
   max-width: 1000px;
   margin: 0 auto;
-  border-left: 6px solid #dc3545; /* Red accent for left edge */
+  /* border-left: 6px solid #dc3545;  */
 }
 
 .timeline-card {
@@ -222,6 +222,21 @@
     margin-bottom: -17px;
   }
 }
+
+
+
+/* .card {
+  min-height: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+} */
+
+
+
 
 
 /* box 1 end */
