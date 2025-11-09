@@ -119,7 +119,7 @@ const Homepage = () => {
               India's Biggest Online Career & Employability Quiz
             </h4>
             <h5 className="fw-bold fs-1" style={{color: "#ff0000"}}>
-              Prize Worth 🏅🏆 upto 1 Lakh 
+              Prize Worth 🏅🏆 upto <span className="price">1 Lakh</span> 
             </h5>
           </motion.div>
 
