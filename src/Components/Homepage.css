@@ -26,6 +26,8 @@
     color: white !important;
 } 
 
+
+
 .inputbox-section::before,
 .inputbox-section::after {
   content: "";
@@ -215,11 +217,11 @@
   }
 
   .headline {
-    margin-bottom: 22px;
+    margin-bottom: 21px;
   }
 
   .heading-text {
-    margin-bottom: -17px;
+    margin-bottom: 21px;
   }
 }
 
@@ -377,7 +379,7 @@
   }
   .register-btn {
     width: 100%;
-    margin-top: -22px;
+  
   }
   table {
     font-size: 0.9rem;
