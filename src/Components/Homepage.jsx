@@ -118,10 +118,13 @@ const Homepage = () => {
             <h4 className="fw-bold text-dark fs-3 heading-text">
               India's Biggest Online Career & Employability Quiz
             </h4>
+            <h5 className="fw-bold fs-1" style={{color: "#ff0000"}}>
+              Prize Worth 🏅🏆 upto 1 Lakh 
+            </h5>
           </motion.div>
 
           <motion.div
-            className="info-card mx-auto mt-5 p-md-0 shadow-lg"
+            className="info-card mx-auto mt-4 p-md-0 shadow-lg"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.3 }}
@@ -142,7 +145,8 @@ const Homepage = () => {
           </motion.div>
 
           <motion.div
-            className="mt-5"
+            // className="mt-4"
+            style={{margin: "30px 0 -5px 0"}}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 200 }}
@@ -163,11 +167,9 @@ const Homepage = () => {
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-5"
+            className="text-center mb-5 "
           >
-            {/* <h3 className="fw-bold fs-1 mb-3 mt-5 gradient-text">
-              🎓 About the Challenge
-            </h3> */}
+      
 
             <h3 className="fw-bold fs-1 mb-5 mt-5 gradient-text gradient-underline">
               🎓 About the Challenge
