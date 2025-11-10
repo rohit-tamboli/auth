@@ -81,7 +81,7 @@ const Result = () => {
       <div className="result-container">
         {userDetails ? (
           <div className="result-card shadow-lg rounded-4 p-4 bg-white">
-            <h3 className="quiz-title text-center mb-4 gradient-text">
+            <h3 className="quiz-title text-center mb-3 fs-2 gradient-text">
               🎉 Congratulations!
             </h3> 
             <p className="text-center  title-text mb-4">
@@ -132,7 +132,7 @@ const Result = () => {
 
             {/* Button */}
             <div className="text-center mt-4">
-              <button className="btn btn-success px-4 py-2 fw-semibold" onClick={handleSubmit}>
+              <button className="submit-btn" onClick={handleSubmit}>
                 Save Follow Status
               </button>
             </div>

@@ -4,7 +4,8 @@ import { auth, db } from "./firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import "./styles.css";
-import Home from "./Home";
+import "./Register.css";
+
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -54,7 +55,7 @@ const Register = () => {
     <>
       <div className="auth-wrapper">
         <form onSubmit={handleRegister} className=" auth-inner">
-          <h3>Registration</h3>
+          <h3 className="gradient-text fw-bold ">Registration</h3>
 
           <div className="mb-3">
             <label>Full Name</label>
@@ -192,7 +193,7 @@ const Register = () => {
           </div>
 
           <div className="d-grid">
-            <button type="submit" className="btn btn-danger">
+            <button type="submit" className="submit-btn">
               Submit
             </button>
           </div>

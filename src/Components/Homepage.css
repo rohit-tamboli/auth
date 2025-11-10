@@ -141,13 +141,6 @@
   }
 }
 
-
-.price {
-    
-    /* margin-top: 8px; */
-    /* margin-bottom: -8px; */
-  }
-
 .reward-table th {
   background-color: #f1f5ff !important;
   text-align: center;
@@ -373,7 +366,7 @@
 
 .register-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(25, 135, 84, 0.4);
+  
 }
 
 /* Responsive Styles */
@@ -388,7 +381,7 @@
     padding-left: 1rem;
   }
   .register-btn {
-    width: 100%;
+    /* width: 100%; */
   
   }
   table {

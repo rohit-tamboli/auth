@@ -81,7 +81,19 @@
 }
 
 .submit-btn {
-  background-color: red !important;
+  background: linear-gradient(90deg, #ff0000, #ff8c00, #ff0000) !important;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
