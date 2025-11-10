@@ -118,8 +118,8 @@ const Homepage = () => {
             <h4 className="fw-bold text-dark fs-3 heading-text">
               India's Biggest Online Career & Employability Quiz
             </h4>
-            <h5 className="fw-bold fs-1" style={{color: "#ff0000"}}>
-              Prize Worth 🏅🏆 upto <span className="price">1 Lakh</span> 
+            <h5 className="fw-bold fs-3 gradient-text price">
+              Prize Worth 🏅🏆 upto 1 Lakh
             </h5>
           </motion.div>
 
