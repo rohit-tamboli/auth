@@ -108,7 +108,7 @@ const Home = () => {
                   UserName
                 </Nav.Link> */}
                 
-                <div className="">
+                {/* <div className="">
                   {userDetails ? (
                     <>
                       <button
@@ -121,7 +121,7 @@ const Home = () => {
                   ) : (
                     <p></p>
                   )}
-                </div>
+                </div> */}
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
