@@ -53,7 +53,7 @@ const Result = () => {
       const docRef = doc(db, "Users", user.uid);
       await updateDoc(docRef, {
         followStatus: followStatus,
-        followUpdatedAt: new Date(),
+        // followUpdatedAt: new Date(),
       });
 
       toast.success("✅ Preferences saved successfully!", {

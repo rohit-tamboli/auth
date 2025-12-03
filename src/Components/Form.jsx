@@ -34,6 +34,15 @@ const Form = () => {
     },
   ];
 
+  const generateCertificateCode = () => {
+    const prefix = "UDT";
+    const randomPart = Math.random().toString(36).substring(2, 8).toUpperCase();
+    const timestamp = Date.now().toString().slice(-4);
+    return `${prefix}-${randomPart}-${timestamp}`;
+  };
+
+  const [certificateCode] = useState(generateCertificateCode());
+
   useEffect(() => {
     const fetchUserData = async () => {
       auth.onAuthStateChanged(async (user) => {
@@ -93,24 +102,33 @@ Testing my employability, confidence & professional skills
           <>
             {/* 🎓 Certificate Display */}
             <div className="certificate-container" ref={certificateRef}>
-              <h2>🏆 Certified Participant</h2>
-              <p>This certifies that</p>
+              <strong className="certificate-code">{certificateCode}</strong>
+
+              <img className="update " src="./update.png" alt="" />
+
+              <h2 className="update-title">upDate</h2>
+              <p className="update-title-sub">
+                upDate Education Technology Private Limited
+              </p>
+              <p className="update-title-sub1">This is to certify that</p>
               <h1 className="participant-name">{userDetails.fullName}</h1>
 
-              <p>
+              <p className="update-title-sub2">
                 has successfully completed the{" "}
                 <strong>Career Readiness Challenge 2025</strong>
               </p>
 
-              {/* 🧠 Show Score */}
-              {/* <p className="score-display">
-                <strong>Score:</strong> {userDetails.score || "N/A"} / 10
-              </p> */}
-
-              <p>
-                Awarded by <strong>upDt Education Technology Pvt. Ltd.</strong>
+              <p className="update-title-sub3">
+                Awarded by{" "}
+                <strong>upDate Education Technology Pvt. Ltd.</strong>
               </p>
-              <p>Date: {new Date().toLocaleDateString()}</p>
+
+              <p className="date">Date: {new Date().toLocaleDateString()}</p>
+
+              <img className="qr-code" src="./qr.png" alt="" />
+
+              <img className="sign" src="./Kiran.png" alt="" />
+              <p className="director">Program Director</p>
             </div>
 
             {/* Actions */}
