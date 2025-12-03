@@ -7,7 +7,6 @@
   padding: 20px;
   padding-top: 70px;
 }
- 
 
 .loading {
   background: #fff;
@@ -20,7 +19,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   margin-top: 70px;
 }
- 
+
 .question-card {
   background: #fff;
   border-radius: 10px;
@@ -28,6 +27,7 @@
   width: 100%;
   max-width: 750px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin-top: -35px;
 }
 
 .quiz-title {
@@ -103,5 +103,9 @@
 
   .quiz-title {
     font-size: 21px;
+  }
+
+  .question-card {
+    margin-top: -35px;
   }
 }
