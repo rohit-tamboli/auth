@@ -81,7 +81,7 @@ const Home = () => {
           </Navbar.Brand>
 
           {/* Hamburger Toggle */}
-          <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
+          {/* <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" /> */}
 
           {/* Offcanvas for mobile */}
           <Navbar.Offcanvas
@@ -95,21 +95,19 @@ const Home = () => {
  
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 ms-auto align-items-center d-flex gap-3">
-                <Nav.Link as={Link} to="/" style={{color: "red"}} className=" fw-semibold">
+                {/* <Nav.Link as={Link} to="/" style={{color: "red"}} className=" fw-semibold">
                   Home
                 </Nav.Link>
-                {/* <Nav.Link as={Link} to="/register" className="text-dark">
+                <Nav.Link as={Link} to="/register" className="text-dark">
                   Register
-                </Nav.Link> */}
-                {/* <Nav.Link as={Link} to="/login" className="text-dark">
+                </Nav.Link>
+                <Nav.Link as={Link} to="/login" className="text-dark">
                   Login
-                </Nav.Link> */}
-                {/* <Nav.Link as={Link} to="/form" className="text-dark">
+                </Nav.Link>
+                <Nav.Link as={Link} to="/form" className="text-dark">
                   UserName
                 </Nav.Link> */}
-                {/* <Nav.Link as={Link} to="/profile" className="text-dark">
-                  Profile
-                </Nav.Link> */}
+                
                 <div className="">
                   {userDetails ? (
                     <>
