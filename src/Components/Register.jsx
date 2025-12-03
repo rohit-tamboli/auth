@@ -43,9 +43,9 @@ const Register = () => {
       window.location.href = "/mcq1";
     } catch (error) {
       console.log(error.message);
-      toast.error(error.message, {
-        position: "bottom-center",
-      });
+      // toast.error(error.message, {
+      //   position: "bottom-center",
+      // });
     }
   };
 
