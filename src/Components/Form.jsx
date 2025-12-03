@@ -105,9 +105,9 @@ Testing my employability, confidence & professional skills
               </p>
 
               {/* 🧠 Show Score */}
-              <p className="score-display">
+              {/* <p className="score-display">
                 <strong>Score:</strong> {userDetails.score || "N/A"} / 10
-              </p>
+              </p> */}
 
               <p>
                 Awarded by <strong>upDt Education Technology Pvt. Ltd.</strong>

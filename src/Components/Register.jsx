@@ -6,16 +6,15 @@ import { toast } from "react-toastify";
 import "./styles.css";
 import "./Register.css";
 
-
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fname, setFname] = useState("");
-  const [mobile, setMobile] = useState("");
+  // const [mobile, setMobile] = useState("");
   const [qualification, setQualification] = useState("");
-  const [whatsAppNo, setWhatsAppNo] = useState("");
+  // const [whatsAppNo, setWhatsAppNo] = useState("");
   const [collegeName, setCollegeName] = useState("");
-  const [referralSource, setReferralSource] = useState("");
+  // const [referralSource, setReferralSource] = useState("");
   const [location, setLocation] = useState("");
   const [referralCode, setReferralCode] = useState("");
 
@@ -29,13 +28,12 @@ const Register = () => {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
           fullName: fname,
-          mobile: mobile,
+          // mobile: mobile,
           qualification: qualification,
           collegeName: collegeName,
-          referralSource: referralSource,
-          whatsAppNo: whatsAppNo,
           location: location,
           referralCode: referralCode,
+          password: password,
         });
       }
       console.log("User Registered Successfully!!");
@@ -84,29 +82,29 @@ const Register = () => {
             <input
               type="number"
               className="form-control"
-              placeholder="Enter mobile no."
-              onChange={(e) => setMobile(e.target.value)}
+              placeholder="Enter password"
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
 
-          <div className="mb-3">
-            <label>WhatsApp No.</label>
+          {/* <div className="mb-3">
+            <label>Mobile No.</label>
             <input
               type="number"
               className="form-control"
-              placeholder="Enter whatsapp no."
-              onChange={(e) => setWhatsAppNo(e.target.value)}
-              required
+              placeholder="Enter mobile no."
+              onChange={(e) => setMobile(e.target.value)}
+              // required
             />
-          </div>
+          </div> */}
 
           <div className="form-group mb-3">
             <label>Current Qualification</label>
             <select
               name="qualification"
               onChange={(e) => setQualification(e.target.value)}
-              required
+              // required
             >
               <option value="" disabled selected>
                 Select Qualification
@@ -138,7 +136,7 @@ const Register = () => {
               className="form-control"
               placeholder="Enter college / university name"
               onChange={(e) => setCollegeName(e.target.value)}
-              required
+              // required
             />
           </div>
           <div className="mb-3">
@@ -148,39 +146,10 @@ const Register = () => {
               className="form-control"
               placeholder="Enter current city / location"
               onChange={(e) => setLocation(e.target.value)}
-              required
+              // required
             />
           </div>
-                  
 
-          <div className="form-group">
-            <label>How did you hear about this quiz?</label>
-            <select
-              name="referralSource"
-              onChange={(e) => setReferralSource(e.target.value)}
-              required
-            >
-              <option value="" disabled selected>
-                Select an option
-              </option>
-              <option value="Instagram">Instagram</option>
-              <option value="LinkedIn">LinkedIn</option>
-              <option value="Friend / Referral">Friend / Referral</option>
-              <option value="College / Faculty">College / Faculty</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div className="mb-3">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
           <div className="mb-3">
             <label>Referral Code/Name Entry (If Any)</label>
             <input
@@ -188,7 +157,7 @@ const Register = () => {
               className="form-control"
               placeholder="Enter referral code / name entry"
               onChange={(e) => setReferralCode(e.target.value)}
-              required
+              // required
             />
           </div>
 

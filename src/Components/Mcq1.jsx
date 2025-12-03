@@ -17,7 +17,7 @@ const Mcq1 = () => {
     q5: "",
   });
   const navigate = useNavigate();
- 
+
   // 🔹 Fetch user data
   useEffect(() => {
     const fetchUserData = async () => {
@@ -59,6 +59,13 @@ const Mcq1 = () => {
 
     if (!user) {
       toast.error("Please log in first", { position: "bottom-center" });
+      return;
+    }
+
+    if (Object.keys(mcqAnswers).length !== mcqQuestions.length) {
+      toast.error("Please answer all MCQ questions!", {
+        position: "bottom-center",
+      });
       return;
     }
 
@@ -145,7 +152,7 @@ const Mcq1 = () => {
     "What does “Career Readiness” mean to you personally? How are you preparing for real-world opportunities?",
     "If selected for Phase 2, how will you utilize the opportunity?",
   ];
- 
+
   return (
     <>
       <Home />
@@ -192,7 +199,7 @@ const Mcq1 = () => {
                   onChange={handleTextChange}
                   required
                 ></textarea>
-                <p 
+                <p
                   className={`word-count ${
                     wordCount(textAnswers[`q${index + 1}`]) > 180
                       ? "warning"
@@ -210,11 +217,10 @@ const Mcq1 = () => {
               </button>
             </div>
           </div>
-        ) : ( 
-          <p className="loading">Loading your MCQs...</p> 
-        )} 
+        ) : (
+          <p className="loading">Loading your MCQs...</p>
+        )}
       </div>
-      
     </>
   );
 };
