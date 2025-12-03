@@ -42,6 +42,7 @@ html,
   flex-direction: column;
   text-align: left;
   /* padding: 20px; */
+
 }
 
 .auth-inner {
@@ -114,7 +115,7 @@ html,
     width: 100%;
     padding: 25px 20px 20px 20px;
     margin: 0 auto;
-    width: 300px;
+    width: 333px;
   }
 
   .auth-wrapper h3 {
