@@ -30,7 +30,7 @@
   color: black;
   word-wrap: break-word;
   margin-bottom: 8px;
-  margin-top: -1px;
+  margin-top: -10px;
 }
 
 /* 💬 Score Display */
@@ -80,11 +80,64 @@
   padding: 0 15px;
 }
 
-.certificate-container p {
-  margin-bottom: 10px;
+.update {
+  height: 32px;
+  position: absolute;
+  left: 310px;
+  top: 150px;
 }
 
-@media (max-width: 768px) {
+.update-title {
+  color: red;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.update-title-sub {
+  color: red;
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: -10px;
+}
+
+.update-title-sub1 {
+  font-weight: 500;
+}
+
+.qr-code {
+  height: 65px;
+  position: absolute;
+  left: 291px;
+  top: 441px;
+}
+
+.ceo {
+  position: absolute;
+  right: 335px;
+  top: 472px;
+  color: red;
+  font-weight: 600;
+  border-top: 1px solid red;
+  font-size: 24px;
+}
+
+.sign {
+  position: absolute;
+  right: 305px;
+  top: 417px;
+  height: 85px;
+}
+
+.certificate-code {
+  position: relative;
+  left: 260px;
+  bottom: 16px;
+  font-size: 14px;
+}
+
+
+
+@media (max-width: 995px) {
   .certificate-container {
     padding: 25px;
   }
@@ -103,23 +156,10 @@
   .qr-code {
     height: 26px !important;
     position: absolute;
-    left: 110px !important;
+    left: 36px !important;
     top: 244px !important;
   }
 
-  .ceo {
-    position: absolute;
-    right: 51px !important;
-    top: 256px !important;
-    font-size: 10px !important;
-  }
-
-  .sign {
-    position: absolute;
-    right: 38px !important;
-    top: 233px !important;
-    height: 35px !important;
-  }
 }
 
 @media (max-width: 480px) {
@@ -132,15 +172,6 @@
     border-width: 3px;
     margin-bottom: 0;
     border: 2px solid red;
-  }
-
-  .certificate-container h2 {
-    font-size: 20px;
-  }
-
-  .certificate-container p {
-    margin: 0;
-    font-size: 12px;
   }
 
   .score-display {
@@ -174,26 +205,26 @@
     height: 26px !important;
     position: absolute;
     left: 36px !important;
-    top: 244px !important;
+    top: 270px !important;
   }
 
   .ceo {
     position: absolute;
     right: 51px !important;
-    top: 256px !important;
+    top: 284px !important;
     font-size: 10px !important;
   }
 
   .sign {
     position: absolute;
     right: 38px !important;
-    top: 233px !important;
+    top: 261px !important;
     height: 35px !important;
   }
 
   .certificate-code {
     position: relative;
-    left: 115px !important;
+    left: 133px !important;
     bottom: 8px !important;
     font-size: 7px !important;
   }
@@ -207,6 +238,7 @@
     font-size: 8px !important;
     margin: 3px 0 !important;
     margin-bottom: 4px !important;
+    margin-top: -10px !important;
   }
 
   .update-title-sub2 {
@@ -223,59 +255,4 @@
     font-size: 8px !important;
     margin-bottom: 10px !important;
   }
-}
-
-.update {
-  height: 32px;
-  position: absolute;
-  left: 310px;
-  top: 150px;
-}
-
-.update-title {
-  color: red;
-  font-weight: 700;
-  font-size: 40px;
-}
-
-.update-title-sub {
-  color: red;
-  font-weight: 500;
-  font-size: 20px;
-  margin-top: -10px;
-}
-
-.update-title-sub1 {
-  font-weight: 500;
-}
-
-.qr-code {
-  height: 65px;
-  position: absolute;
-  left: 291px;
-  top: 424px;
-}
-
-.ceo {
-  position: absolute;
-  right: 335px;
-  top: 450px;
-  color: red;
-  font-weight: 600;
-  border-top: 1px solid red;
-  font-size: 24px;
-}
-
-.sign {
-  position: absolute;
-  right: 305px;
-  top: 395px;
-  height: 85px;
-}
-
-.certificate-code {
-  position: relative;
-  left: 260px;
-  bottom: 16px;
-  font-size: 14px;
 }
