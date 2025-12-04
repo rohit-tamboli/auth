@@ -173,7 +173,7 @@
     position: absolute;
     right: 190px;
     top: 425px;
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .sign {
@@ -227,20 +227,20 @@
     height: 26px !important;
     position: absolute;
     left: 36px !important;
-    top: 273px !important;
+    top: 275px !important;
   }
 
   .ceo {
     position: absolute;
     right: 51px !important;
-    top: 284px !important;
+    top: 286px !important;
     font-size: 10px !important;
   }
 
   .sign {
     position: absolute;
     right: 38px !important;
-    top: 261px !important;
+    top: 263px !important;
     height: 35px !important;
   }
 
