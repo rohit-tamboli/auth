@@ -121,7 +121,7 @@ const Result = () => {
               ].map((platform) => (
                 <div
                   key={platform}
-                  className="follow-row d-flex justify-content-between align-items-center mb-2 p-2 rounded-3 bg-light"
+                  className="follow-row mb-2 p-2 rounded-3 bg-light"
                 >
                   <label className="fw-semibold">{platform}</label>
 
@@ -133,9 +133,9 @@ const Result = () => {
                     }
                     required
                   >
-                    <option value="">Select status</option>
+                    <option value="" className="option">Select status</option>
                     {options.map((opt) => (
-                      <option key={opt.value} value={opt.value}>
+                      <option key={opt.value} value={opt.value} className="options">
                         {opt.label}
                       </option>
                     ))}
@@ -146,7 +146,7 @@ const Result = () => {
 
             {/* Note Section */}
             <div className="note-section mt-4 text-muted">
-              <p>
+              <p className="title-text">
                 🧾 <strong>Note:</strong> All official updates, winner
                 announcements, and internship results will be shared only on our
                 verified pages. Follow now to stay informed!

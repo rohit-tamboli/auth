@@ -46,23 +46,45 @@
   margin-top: 25px;
 }
 
-
-
-
-
 @media (max-width: 768px) {
   .follow-container {
     margin: 0px auto;
   }
 
   .title-text {
+    font-size: 11px !important;
+  }
+
+  .quiz-title {
+    font-size: 20px !important;
+  }
+
+  .follow-row select {
+    width: 55% !important;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f8f9fa;
+  }
+
+  .option {
+    font-size: 13px !important;
+  }
+  .options {
     font-size: 13px !important;
   }
 }
 
 .title-text {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
+}
+
+.option {
+  font-size: 14px;
+}
+.options {
+  font-size: 14px;
 }
 
 /*  */
@@ -75,7 +97,7 @@
 }
 
 .result-card {
-  max-width: 750px;
+  max-width: 550px;
   width: 100%;
   border-radius: 15px;
   margin: -20px 0;
@@ -84,6 +106,7 @@
 .follow-row label {
   font-size: 16px;
   color: #333;
+  margin-left: 20px;
 }
 
 .note-section {
