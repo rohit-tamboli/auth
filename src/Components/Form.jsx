@@ -104,11 +104,11 @@ Testing my employability, confidence & professional skills
             <div className="certificate-container" ref={certificateRef}>
               <strong className="certificate-code">{certificateCode}</strong>
 
-              <img className="update " src="./update.png" alt="" />
+              {/* <img className="update " src="./update.png" alt="" /> */}
 
               <h2 className="update-title">upDate</h2>
               <p className="update-title-sub">
-                upDate Education Technology Private Limited
+                upDt Education Technology Private Limited
               </p>
               <p className="update-title-sub1">This is to certify that</p>
               <h1 className="participant-name">{userDetails.fullName}</h1>
@@ -120,7 +120,7 @@ Testing my employability, confidence & professional skills
 
               <p className="update-title-sub3">
                 Awarded by{" "}
-                <strong>upDate Education Technology Pvt. Ltd.</strong>
+                <strong>upDt Education Technology Pvt. Ltd.</strong>
               </p>
 
               <p className="date">Date: {new Date().toLocaleDateString()}</p>
@@ -128,7 +128,7 @@ Testing my employability, confidence & professional skills
               <img className="qr-code" src="./qr.png" alt="" />
 
               <img className="sign" src="./Kiran.png" alt="" />
-              <p className="director">Program Director</p>
+              <p className="ceo">CEO</p>
             </div>
 
             {/* Actions */}

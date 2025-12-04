@@ -99,6 +99,27 @@
     width: 100%;
     font-size: 0.95rem;
   }
+
+  .qr-code {
+    height: 26px !important;
+    position: absolute;
+    left: 110px !important;
+    top: 244px !important;
+  }
+
+  .ceo {
+    position: absolute;
+    right: 51px !important;
+    top: 256px !important;
+    font-size: 10px !important;
+  }
+
+  .sign {
+    position: absolute;
+    right: 38px !important;
+    top: 233px !important;
+    height: 35px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -135,7 +156,7 @@
   .participant-name {
     font-size: 18px;
     margin-bottom: 4px;
-    margin-top: 1px;
+    margin-top: -2px;
   }
 
   .share-text {
@@ -152,22 +173,22 @@
   .qr-code {
     height: 26px !important;
     position: absolute;
-    right: 33px !important;
+    left: 36px !important;
     top: 244px !important;
   }
 
-  .director {
+  .ceo {
     position: absolute;
-    left: 40px !important;
-    top: 261px !important;
-    font-size: 6px !important;
+    right: 51px !important;
+    top: 256px !important;
+    font-size: 10px !important;
   }
 
   .sign {
     position: absolute;
-    left: 41px !important;
-    top: 232px !important;
-    height: 45px !important;
+    right: 38px !important;
+    top: 233px !important;
+    height: 35px !important;
   }
 
   .certificate-code {
@@ -231,29 +252,30 @@
 .qr-code {
   height: 65px;
   position: absolute;
-  right: 296px;
-  top: 418px;
+  left: 291px;
+  top: 424px;
 }
 
-.director {
+.ceo {
   position: absolute;
-  left: 310px;
-  top: 461px;
+  right: 335px;
+  top: 450px;
   color: red;
-  font-weight: 500;
+  font-weight: 600;
   border-top: 1px solid red;
-  font-size: 14px;
+  font-size: 24px;
 }
 
 .sign {
   position: absolute;
-  left: 313px;
-  top: 397px;
-  height: 100px;
+  right: 305px;
+  top: 395px;
+  height: 85px;
 }
 
 .certificate-code {
   position: relative;
   left: 260px;
   bottom: 16px;
+  font-size: 14px;
 }

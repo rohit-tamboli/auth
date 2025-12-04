@@ -114,9 +114,9 @@ const Result = () => {
               {[
                 "WhatsApp",
                 "Instagram",
+                "YouTube",
                 "LinkedIn",
                 "Telegram",
-                "YouTube",
                 "Facebook",
               ].map((platform) => (
                 <div
