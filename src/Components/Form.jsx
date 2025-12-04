@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { auth, db } from "./firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import html2canvas from "html2canvas";
 import { toast } from "react-toastify";
 import Home from "./Home";
@@ -41,34 +41,53 @@ const Form = () => {
     return `${prefix}-${randomPart}-${timestamp}`;
   };
 
-  const [certificateCode] = useState(generateCertificateCode());
+  const [certificateCode, setCertificateCode] = useState("");  
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      auth.onAuthStateChanged(async (user) => {
-        if (user) {
-          try {
-            const docRef = doc(db, "Users", user.uid);
-            const docSnap = await getDoc(docRef);
+  const fetchUserData = async () => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          const docRef = doc(db, "Users", user.uid);
+          const docSnap = await getDoc(docRef);
 
-            if (docSnap.exists()) {
-              setUserDetails(docSnap.data());
-              setTimeout(() => downloadCertificate(), 1500); // auto download PNG
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            setUserDetails(userData);
+
+            // ⛔ Prevent new code if already exists
+            if (userData.certificateCode) {
+              setCertificateCode(userData.certificateCode);
             } else {
-              toast.error("⚠️ User data not found in database.");
-            }
-          } catch (error) {
-            console.error(error);
-            toast.error("Failed to load user data.");
-          }
-        } else {
-          toast.error("Please login first!");
-        }
-      });
-    };
+              // ✔ Create NEW one only for first time
+              const newCode = generateCertificateCode();
+              setCertificateCode(newCode);
 
-    fetchUserData();
-  }, []);
+              await updateDoc(docRef, {
+                certificateCode: newCode,
+              });
+            }
+
+            // Auto download
+            setTimeout(() => downloadCertificate(), 1500);
+
+          } else {
+            toast.error("⚠️ User data not found in database.");
+          }
+        } catch (error) {
+          console.error(error);
+          toast.error("Failed to load user data.");
+        }
+      } else {
+        toast.error("Please login first!");
+      }
+    });
+  };
+
+  fetchUserData();
+}, []);
+
+
 
   const downloadCertificate = async () => {
     if (!certificateRef.current) return;
@@ -100,11 +119,8 @@ Testing my employability, confidence & professional skills
       <div className="certificate-page">
         {userDetails ? (
           <>
-            {/* 🎓 Certificate Display */}
             <div className="certificate-container" ref={certificateRef}>
               <strong className="certificate-code">{certificateCode}</strong>
-
-              {/* <img className="update " src="./update.png" alt="" /> */}
 
               <h2 className="update-title">upDate</h2>
               <p className="update-title-sub">
@@ -119,8 +135,7 @@ Testing my employability, confidence & professional skills
               </p>
 
               <p className="update-title-sub3">
-                Awarded by{" "}
-                <strong>upDt Education Technology Pvt. Ltd.</strong>
+                Awarded by <strong>upDt Education Technology Pvt. Ltd.</strong>
               </p>
 
               <p className="date">Date: {new Date().toLocaleDateString()}</p>
