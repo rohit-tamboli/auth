@@ -19,6 +19,18 @@ const Result = () => {
 
   const navigate = useNavigate();
 
+  // 🔹 All platform links here
+  const platformLinks = {
+    instagram: "https://www.instagram.com/update_edu/?igsh=bDF3eDUxOG1wbHZ2",
+    whatsapp:
+      "https://api.whatsapp.com/send/?phone=918109718211&text&type=phone_number&app_absent=0",
+    facebook: "https://www.facebook.com/",
+    linkedin:
+      "https://www.linkedin.com/company/updateedu/posts/?feedView=all&viewAsMember=true",
+    youtube: "https://www.youtube.com/",
+    telegram: "https://t.me/update_edu",
+  };
+
   // 🔹 Fetch user data on mount
   useEffect(() => {
     const fetchUserData = async () => {
@@ -35,9 +47,16 @@ const Result = () => {
     fetchUserData();
   }, []);
 
-  // 🔹 Handle select change
+  // 🔹 Handle select change + Auto redirect when followed
   const handleSelect = (platform, value) => {
     setFollowStatus({ ...followStatus, [platform]: value });
+
+    if (value === "followed") {
+      const url = platformLinks[platform];
+      if (url) {
+        window.open(url, "_blank");
+      }
+    }
   };
 
   // 🔹 Save to Firestore
@@ -53,7 +72,6 @@ const Result = () => {
       const docRef = doc(db, "Users", user.uid);
       await updateDoc(docRef, {
         followStatus: followStatus,
-        // followUpdatedAt: new Date(),
       });
 
       toast.success("✅ Preferences saved successfully!", {
@@ -83,9 +101,10 @@ const Result = () => {
           <div className="result-card shadow-lg rounded-4 p-4 bg-white">
             <h3 className="quiz-title text-center mb-3 fs-2 gradient-text">
               🎉 Congratulations!
-            </h3> 
-            <p className="text-center  title-text mb-4">
-              You’ve successfully completed the Career Readiness Challenge Quiz. <br />
+            </h3>
+            <p className="text-center title-text mb-4">
+              You’ve successfully completed the Career Readiness Challenge Quiz.
+              <br />
               Stay updated about results, winners, and internships by following
               us on our official platforms 👇
             </p>
@@ -93,15 +112,19 @@ const Result = () => {
             {/* Follow Section */}
             <div className="follow-table mx-auto">
               {[
-                "Instagram",
                 "WhatsApp",
-                "Facebook",
+                "Instagram",
                 "LinkedIn",
-                "YouTube",
                 "Telegram",
+                "YouTube",
+                "Facebook",
               ].map((platform) => (
-                <div key={platform} className="follow-row d-flex justify-content-between align-items-center mb-2 p-2 rounded-3 bg-light">
+                <div
+                  key={platform}
+                  className="follow-row d-flex justify-content-between align-items-center mb-2 p-2 rounded-3 bg-light"
+                >
                   <label className="fw-semibold">{platform}</label>
+
                   <select
                     className="form-select w-auto"
                     value={followStatus[platform.toLowerCase()] || ""}
@@ -138,7 +161,9 @@ const Result = () => {
             </div>
           </div>
         ) : (
-          <p className="text-center text-muted fs-5 mt-5">Loading your Following...</p>
+          <p className="text-center text-muted fs-5 mt-5">
+            Loading your Following...
+          </p>
         )}
       </div>
     </>
