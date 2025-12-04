@@ -67,10 +67,10 @@
     background: #f8f9fa;
   }
 
-  .option {
+  .status {
     font-size: 13px !important;
   }
-  .options {
+  .status-options {
     font-size: 13px !important;
   }
 }
@@ -80,10 +80,10 @@
   font-weight: bold;
 }
 
-.option {
+.status {
   font-size: 14px;
 }
-.options {
+.status-options {
   font-size: 14px;
 }
 

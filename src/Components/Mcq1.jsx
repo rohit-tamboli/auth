@@ -116,7 +116,7 @@ const Mcq1 = () => {
       id: 3,
       text: "Which habit helps you stay consistent in achieving goals?",
       options: [
-        { value: "A", text: "Procrastination" },
+        { value: "A", text: "Procrastination" }, 
         { value: "B", text: "Daily routine & planning" },
         { value: "C", text: "Ignoring feedback" },
         { value: "D", text: "Random multitasking" },

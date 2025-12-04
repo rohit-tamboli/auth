@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 600px; 
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   margin-top: 70px;
 }
@@ -98,7 +98,8 @@
 
 @media (max-width: 768px) {
   .options-grid {
-    grid-template-columns: 1fr; /* Stack vertically on mobile */
+    grid-template-columns: 1fr; 
+    font-size: 15px;
   }
 
   .quiz-title {

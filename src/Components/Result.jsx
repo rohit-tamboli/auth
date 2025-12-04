@@ -133,9 +133,9 @@ const Result = () => {
                     }
                     required
                   >
-                    <option value="" className="option">Select status</option>
+                    <option value="" className="status">Select status</option>
                     {options.map((opt) => (
-                      <option key={opt.value} value={opt.value} className="options">
+                      <option key={opt.value} value={opt.value} className="status-options">
                         {opt.label}
                       </option>
                     ))}
