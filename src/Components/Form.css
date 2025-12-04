@@ -223,24 +223,28 @@
     top: 115px !important;
   }
 
+  .update-title {
+    font-size: 19px;
+  }
+
   .qr-code {
     height: 26px !important;
     position: absolute;
-    left: 36px !important;
-    top: 275px !important;
+    left: 34px !important;
+    top: 248px !important;
   }
 
   .ceo {
     position: absolute;
     right: 51px !important;
-    top: 286px !important;
+    top: 262px !important;
     font-size: 10px !important;
   }
 
   .sign {
     position: absolute;
     right: 38px !important;
-    top: 263px !important;
+    top: 239px !important;
     height: 35px !important;
   }
 
